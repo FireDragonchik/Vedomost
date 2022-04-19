@@ -14,8 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reports', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('id');
+            $table->string('year');
+            $table->string('semesterNumber');
+            $table->string('shortNameOfFaculty');
+            $table->string('course');
+            $table->string('groupCode');
+            $table->string('fullNameOfDiscipline');
+            $table->string('fioTeacher');
         });
     }
 

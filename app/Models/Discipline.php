@@ -13,4 +13,6 @@ class Discipline extends Model
         'shortNameOfDiscipline',
         'fullNameOfDiscipline'
     ];
+
+    public $timestamps = false;
 }

@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Group extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'groupCode',
+        'course',
+        'shortNameOfFaculty',
+        'formOfEducation',
+        'graduateDegree',
+        'numberOfStudents',
+        'shortNameOfSpecialty'
+    ];
+
+    public $timestamps = false;
 }

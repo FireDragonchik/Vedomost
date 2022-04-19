@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\Attestation;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class AttestationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,29 +41,21 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Student  $student
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param  \App\Models\Attestation  $attestation
+     * @return \Illuminate\Http\Response
      */
-//    public function show(Student $student)
-//    {
-//        return view('report',
-//        ['student'=>$student]);
-//    }
-
-    public function show()
+    public function show(Attestation $attestation)
     {
-        $result = Student::all();
-        return view('report',
-        ['students'=>$result]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Attestation  $attestation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit(Attestation $attestation)
     {
         //
     }
@@ -72,10 +64,10 @@ class StudentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Attestation  $attestation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, Attestation $attestation)
     {
         //
     }
@@ -83,10 +75,10 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Attestation  $attestation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(Attestation $attestation)
     {
         //
     }

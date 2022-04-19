@@ -10,8 +10,10 @@ class Student extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
-        'group',
-        'fio',
+        'studentId',
+        'groupCode',
+        'fioStudent',
     ];
+
+    public $timestamps = false;
 }

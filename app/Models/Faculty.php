@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Faculty extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'shortNameOfFaculty',
+        'fullNameOfFaculty',
+        'fioDean'
+    ];
+
+    public $timestamps = false;
 }

@@ -14,8 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('groups', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('groupCode');
+            $table->string('course');
+            $table->string('shortNameOfFaculty');
+            $table->string('formOfEducation');
+            $table->string('graduateDegree');
+            $table->string('numberOfStudents');
+            $table->string('shortNameOfSpecialty');
         });
     }
 
