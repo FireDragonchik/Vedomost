@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('specialties', function (Blueprint $table) {
-            $table->string('shortNameOfSpecialty');
-            $table->string('fullNameOfSpecialty');
+        Schema::create('faculties', function (Blueprint $table) {
+            $table->id();
+            $table->string('shortNameOfFaculty');
+            $table->string('fullNameOfFaculty');
+            $table->string('fioDean');
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('specialties');
+        Schema::dropIfExists('faculties');
     }
 };

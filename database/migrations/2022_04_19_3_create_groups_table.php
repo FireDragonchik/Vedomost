@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('groups', function (Blueprint $table) {
+            $table->id();
             $table->string('groupCode');
             $table->string('course');
             $table->string('shortNameOfFaculty');
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->string('graduateDegree');
             $table->string('numberOfStudents');
             $table->string('shortNameOfSpecialty');
+            $table->foreignId('specialty_id')->constrained();
         });
     }
 

@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('attestations', function (Blueprint $table) {
-            $table->string('reportId');
-            $table->string('studentId');
-            $table->string('fioStudent');
-            $table->string('groupCode');
+            $table->id();
+            $table->foreignId('report_id')->constrained();
+            $table->foreignId('student_id');
+            $table->date('date');
+            $table->integer('mark');
         });
     }
 

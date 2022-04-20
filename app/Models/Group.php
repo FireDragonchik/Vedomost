@@ -16,8 +16,13 @@ class Group extends Model
         'formOfEducation',
         'graduateDegree',
         'numberOfStudents',
-        'shortNameOfSpecialty'
+        'shortNameOfSpecialty',
+        'specialty_id'
     ];
 
     public $timestamps = false;
+
+    public function specialty(){
+        return $this->belongsTo(Specialty::class);
+    }
 }

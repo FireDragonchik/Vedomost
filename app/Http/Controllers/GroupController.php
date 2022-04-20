@@ -27,6 +27,14 @@ class GroupController extends Controller
         //
     }
 
+    public function group(Request $request){
+
+//        $group = Group::find($request->groupId);
+//
+//        return view('report',
+//        )
+    }
+
     /**
      * Store a newly created resource in storage.
      *

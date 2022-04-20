@@ -13,8 +13,14 @@ class Attestation extends Model
         'reportId',
         'studentId',
         'fioStudent',
-        'groupCode'
+        'groupCode',
+        'date',
+        'mark'
     ];
 
     public $timestamps = false;
+
+    public function student(){
+        return $this->belongsTo(Student::class);
+    }
 }

@@ -44,17 +44,9 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-//    public function show(Student $student)
-//    {
-//        return view('report',
-//        ['student'=>$student]);
-//    }
-
-    public function show()
+    public function show(Student $student)
     {
-        $result = Student::all();
-        return view('report',
-        ['students'=>$result]);
+       //
     }
 
     /**

@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reports', function (Blueprint $table) {
+        Schema::create('disciplines', function (Blueprint $table) {
             $table->id();
-            $table->string('year');
-            $table->string('semesterNumber');
-            $table->string('shortNameOfFaculty');
-            $table->string('course');
-            $table->string('groupCode');
+            $table->string('shortNameOfDiscipline');
             $table->string('fullNameOfDiscipline');
-            $table->string('fioTeacher');
         });
     }
 
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reports');
+        Schema::dropIfExists('disciplines');
     }
 };
