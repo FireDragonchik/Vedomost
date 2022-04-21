@@ -4,8 +4,8 @@ namespace App\Filters;
 
 class StudentFilter extends QueryFilter{
 
-    public function groupCode($groupCode){
+    public function group_id($group_id){
 
-        return $this->builder->where('groupCode', $groupCode);
+        return $this->builder->where('group_id', $group_id);
     }
 }

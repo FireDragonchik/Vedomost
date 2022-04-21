@@ -10,10 +10,8 @@ class Attestation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'reportId',
-        'studentId',
-        'fioStudent',
-        'groupCode',
+        'report_id',
+        'student_id',
         'date',
         'mark'
     ];

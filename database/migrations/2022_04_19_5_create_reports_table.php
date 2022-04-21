@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('year_id');
-            $table->foreignId('semester_id');
-            $table->foreignId('group_id');
-            $table->foreignId('discipline_id');
-            $table->foreignId('teacher_id');
+            $table->foreignId('year_id')->constrained();
+            $table->foreignId('semester_id')->constrained();
+            $table->foreignId('group_id')->constrained();
+            $table->foreignId('discipline_id')->constrained();
         });
     }
 

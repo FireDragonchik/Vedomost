@@ -27,13 +27,13 @@
                         @endforeach
                     </select>
                     <div class="form-label">Группа</div>
-                    <select id="groupSelect" name="groupCode" class="form-select form-select-sm"
+                    <select id="groupSelect" name="group_id" class="form-select form-select-sm"
                             aria-label=".form-select-sm example">
                         <option selected disabled>Выберите группу</option>
                         @foreach($groups as $group)
                             <option class="group" data-specialty="{{$group->specialty->shortNameOfSpecialty}}"
-                                    value="{{$group->groupCode}}"
-                                    @if(isset($_GET['groupCode'])) @if($_GET['groupCode'] == $group->groupCode) selected @endif @endif>
+                                    value="{{$group->id}}"
+                                    @if(isset($_GET['group_id'])) @if($_GET['group_id'] == $group->id) selected @endif @endif>
                                 {{$group->groupCode}}
                             </option>
                         @endforeach
@@ -47,7 +47,6 @@
                         <thead>
                         <tr>
                             <th>№</th>
-                            <th>Группа</th>
                             <th>ФИО студента</th>
                             @if(!empty($students) && !empty($students[0]->attestation))
                                 @foreach($students[0]->attestation as $attestation)
@@ -59,7 +58,6 @@
                         @foreach($students as $student)
                             <tr>
                                 <td>{{$student->studentId}}</td>
-                                <td>{{$student->groupCode}}</td>
                                 <td>{{$student->fioStudent}}</td>
                                 @if(!empty($student->attestation))
                                     @foreach($student->attestation as $attestation)

@@ -14,8 +14,7 @@ class Report extends Model
         'year_id',
         'semester_id',
         'group_id',
-        'discipline_id',
-        'teacher_id'
+        'discipline_id'
     ];
 
     public $timestamps = false;

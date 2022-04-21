@@ -27,4 +27,8 @@ class Student extends Model
     public function attestation(){
         return $this->hasMany(Attestation::class);
     }
+
+    public function group(){
+        return $this->belongsTo(Group::class);
+    }
 }

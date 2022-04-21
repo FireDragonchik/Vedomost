@@ -53,18 +53,15 @@
                 <div class="container footer-container">
                     <div class="time">
                         <div class="footer-text">
-                            Время работы
-                        </div>
-                        <div class="footer-content">
-                            8:00 - 20:00
+                            БГАС@2022
                         </div>
                     </div>
                     <div class="short-number">
                         <div class="footer-text">
-                            Короткий номер
+                            Контакты
                         </div>
                         <div class="footer-content">
-                            7777
+                            80177777777
                         </div>
                     </div>
                 </div>
