@@ -11,7 +11,8 @@ class Discipline extends Model
 
     protected $fillable = [
         'shortNameOfDiscipline',
-        'fullNameOfDiscipline'
+        'fullNameOfDiscipline',
+        'teacher_id'
     ];
 
     public $timestamps = false;

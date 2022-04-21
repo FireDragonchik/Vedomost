@@ -13,10 +13,9 @@ class Student extends Model
 
     protected $fillable = [
         'studentId',
-        'groupCode',
+        'group_id',
         'fioStudent',
-        'subGroup',
-        'group_id'
+        'subGroup'
     ];
 
     public $timestamps = false;

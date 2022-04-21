@@ -12,7 +12,7 @@ class Teacher extends Model
     protected $fillable = [
         'fioTeacher',
         'position',
-        'shortNameOfDepartment'
+        'department_id'
     ];
 
     public $timestamps = false;

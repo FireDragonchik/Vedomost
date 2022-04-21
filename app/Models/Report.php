@@ -11,13 +11,11 @@ class Report extends Model
 
     protected $fillable = [
         'id',
-        'year',
-        'semesterNumber',
-        'shortNameOfFaculty',
-        'course',
-        'groupCode',
-        'fullNameOfDiscipline',
-        'fioTeacher'
+        'year_id',
+        'semester_id',
+        'group_id',
+        'discipline_id',
+        'teacher_id'
     ];
 
     public $timestamps = false;

@@ -16,12 +16,10 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string('groupCode');
-            $table->string('course');
-            $table->string('shortNameOfFaculty');
-            $table->string('formOfEducation');
-            $table->string('graduateDegree');
+            $table->foreignId('course_id')->constrained();
+            $table->foreignId('form_of_education_id')->constrained();
+            $table->foreignId('graduate_degree_id')->constrained();
             $table->string('numberOfStudents');
-            $table->string('shortNameOfSpecialty');
             $table->foreignId('specialty_id')->constrained();
         });
     }

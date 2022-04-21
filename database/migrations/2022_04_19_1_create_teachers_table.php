@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('fioTeacher');
             $table->string('position');
-            $table->string('shortNameOfDepartment');
+            $table->foreignId('department_id')->constrained();
         });
     }
 

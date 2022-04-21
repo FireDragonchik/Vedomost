@@ -11,12 +11,10 @@ class Group extends Model
 
     protected $fillable = [
         'groupCode',
-        'course',
-        'shortNameOfFaculty',
-        'formOfEducation',
-        'graduateDegree',
+        'course_id',
+        'formOfEducation_id',
+        'graduateDegree_id',
         'numberOfStudents',
-        'shortNameOfSpecialty',
         'specialty_id'
     ];
 

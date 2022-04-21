@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('attestations', function (Blueprint $table) {
-            $table->foreignId('report_id')->constrained();
-            $table->foreignId('student_id');
-            $table->date('date');
-            $table->integer('mark');
+        Schema::create('reports', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('year_id');
+            $table->foreignId('semester_id');
+            $table->foreignId('group_id');
+            $table->foreignId('discipline_id');
+            $table->foreignId('teacher_id');
         });
     }
 
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('reports');
     }
 };

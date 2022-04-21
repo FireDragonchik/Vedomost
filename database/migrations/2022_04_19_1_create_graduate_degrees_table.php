@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('attestations', function (Blueprint $table) {
+        Schema::create('graduate_degrees', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('report_id')->constrained();
-            $table->foreignId('student_id');
-            $table->date('date');
-            $table->integer('mark');
+            $table->string('formOfEducation');
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attestations');
+        Schema::dropIfExists('graduate_degrees');
     }
 };
