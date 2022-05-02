@@ -32,7 +32,7 @@
                     <div class="container header-top-container">
                         <div class="authentication">
                             @auth
-                                <a href="{{ route('home') }}">Личный кабинет &nbsp/&nbsp</a>
+                                <a href="{{ route('personalAccount') }}">Личный кабинет &nbsp/&nbsp</a>
                                 <a href="{{ route('report') }}">Ведомость &nbsp/&nbsp</a>
                                 <a href="{{ route('logout') }}">Выйти</a>
                             @else
@@ -47,27 +47,25 @@
 
         @yield('content')
     </div>
-    <div class="footer">
-        @section('footer')
-            <footer>
-                <div class="container footer-container">
-                    <div class="time">
-                        <div class="footer-text">
-                            БГАС@2022
-                        </div>
-                    </div>
-                    <div class="short-number">
-                        <div class="footer-text">
-                            Контакты
-                        </div>
-                        <div class="footer-content">
-                            80177777777
-                        </div>
+    @section('footer')
+        <footer>
+            <div class="footer container footer-container">
+                <div class="time">
+                    <div class="footer-text">
+                        © 2021-{{ date('Y') }} УО Белорусская государственная академия связи
                     </div>
                 </div>
-            </footer>
-        @show
-    </div>
+                <div class="short-number">
+                    <div class="footer-text">
+                        Контакты
+                    </div>
+                    <div class="footer-content">
+                        80177777777
+                    </div>
+                </div>
+            </div>
+        </footer>
+    @show
 </div>
 </body>
 </html>

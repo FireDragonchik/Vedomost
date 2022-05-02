@@ -16,4 +16,8 @@ class Discipline extends Model
     ];
 
     public $timestamps = false;
+
+    public function teacher(){
+        return $this->belongsTo(Teacher::class);
+    }
 }

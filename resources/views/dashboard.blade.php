@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Начальная страница @endsection
+@section('title') Панель админа @endsection
 
 @section('header')
     @parent

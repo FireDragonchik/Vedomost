@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Filters\QueryFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,4 +18,12 @@ class Teacher extends Model
     ];
 
     public $timestamps = false;
+
+    public function disciplines(){
+        return $this->hasMany(Discipline::class);
+    }
+
+    public function scopeFilter(Builder $builder, QueryFilter $queryFilter){
+        return $queryFilter->apply($builder);
+    }
 }
