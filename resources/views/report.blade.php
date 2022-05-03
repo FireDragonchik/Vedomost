@@ -31,10 +31,10 @@
                             aria-label=".form-select-sm example">
                         <option selected disabled>Выберите группу</option>
                         @foreach($groups as $group)
-                            <option class="group" data-specialty="{{$group->specialty->shortNameOfSpecialty}}"
-                                    value="{{$group->id}}"
+                            <option class="group" data-specialty="{{ $group->specialty->shortNameOfSpecialty }}"
+                                    value="{{ $group->id }}"
                                     @if(isset($_GET['group_id'])) @if($_GET['group_id'] == $group->id) selected @endif @endif>
-                                {{$group->groupCode}}
+                                {{ $group->groupCode }}
                             </option>
                         @endforeach
                     </select>

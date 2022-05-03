@@ -10,7 +10,7 @@
                 <div class="card-header">{{ __('Авторизация') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('home') }}">
+                    <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="row mb-3">

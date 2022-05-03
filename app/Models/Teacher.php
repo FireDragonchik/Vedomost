@@ -26,4 +26,8 @@ class Teacher extends Model
     public function scopeFilter(Builder $builder, QueryFilter $queryFilter){
         return $queryFilter->apply($builder);
     }
+
+    public function department(){
+        return $this->belongsTo(Department::class);
+    }
 }

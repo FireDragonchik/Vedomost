@@ -1,12 +1,10 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PersonalAccountController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +17,9 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-Route::get('/home', function (){
-    return view('home');
-})->name('home');
+Route::get('/', [App\Http\Controllers\App\HomeController::class, 'index']);
+Route::get('/home', [App\Http\Controllers\App\HomeController::class, 'index'])->name('home');
+
 Auth::routes();
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -33,10 +28,8 @@ Route::get('/personalAccount', [PersonalAccountController::class, 'index'])->nam
 Route::get('/personalAccountInfo', [PersonalAccountController::class, 'getUser'])->name('personalAccountInfo');
 Route::get('/report', [ReportController::class, 'index'])->name('report');;
 
+Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin');
 
-
-Route::group(['middleware' => ['role:admin']], function () {
-    Route::get('/admin', function (){
-        return view('dashboard');
-    });
+    Route::resource('teacher', \App\Http\Controllers\Admin\TeacherController::class);
 });
