@@ -32,4 +32,11 @@ Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin');
 
     Route::resource('teacher', \App\Http\Controllers\Admin\TeacherController::class);
+    Route::resource('department', \App\Http\Controllers\Admin\DepartmentController::class);
+    Route::resource('faculty', \App\Http\Controllers\Admin\FacultyController::class);
+    Route::resource('specialty', \App\Http\Controllers\Admin\SpecialtyController::class);
+    Route::resource('graduateDegree', \App\Http\Controllers\Admin\GraduateDegreeController::class);
+    Route::resource('educationForm', \App\Http\Controllers\Admin\EducationFormController::class);
+    Route::resource('course', \App\Http\Controllers\Admin\CourseController::class);
+    Route::resource('group', \App\Http\Controllers\Admin\GroupController::class);
 });

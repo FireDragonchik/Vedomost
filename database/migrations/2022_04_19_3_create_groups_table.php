@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('groupCode');
             $table->foreignId('course_id')->constrained();
-            $table->foreignId('form_of_education_id')->constrained();
+            $table->foreignId('education_form_id')->constrained();
             $table->foreignId('graduate_degree_id')->constrained();
-            $table->string('numberOfStudents');
+            $table->integer('numberOfStudents');
             $table->foreignId('specialty_id')->constrained();
         });
     }

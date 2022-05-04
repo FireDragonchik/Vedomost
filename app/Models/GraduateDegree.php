@@ -10,7 +10,8 @@ class GraduateDegree extends Model
     use HasFactory;
 
     protected $fillable = [
-        'graduateDegree'
+        'graduateDegreeShort',
+        'graduateDegreeFull'
     ];
 
     public $timestamps = false;

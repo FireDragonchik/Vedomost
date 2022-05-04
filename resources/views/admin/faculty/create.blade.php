@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Добавить преподавателя')
+@section('title', 'Добавить факультет')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Добавить преподавателя</h1>
+                    <h1 class="m-0">Добавить факультет</h1>
                 </div><!-- /.c  ol -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -30,31 +30,27 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('teacher.store') }}" method="POST">
+                        <form action="{{ route('faculty.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="fioTeacher">ФИО преподавателя</label>
-                                    <input type="text" name="fioTeacher" class="form-control" id="fioTeacher"
-                                           placeholder="Введите ФИО преподавателя" required>
+                                    <label for="shortNameOfFaculty">Краткое наименование факультета</label>
+                                    <input type="text" name="shortNameOfFaculty" class="form-control" id="shortNameOfFaculty"
+                                           placeholder="Введите краткое наименование факультета" required>
                                 </div>
+                            </div>
+                            <div class="card-body">
                                 <div class="form-group">
-                                    <label for="position">Должность</label>
-                                    <input type="text" name="position" class="form-control" id="position"
-                                           placeholder="Введите должность преподавателя" required>
+                                    <label for="fullNameOfFaculty">Полное наименование факультета</label>
+                                    <input type="text" name="fullNameOfFaculty" class="form-control" id="fullNameOfFaculty"
+                                           placeholder="Введите полное наименование факультета" required>
                                 </div>
-                                <div class="card-body">
-                                    <label class="form-label" for="departmentSelect">Кафедра</label>
-                                    <select id="departmentSelect" name="department_id"
-                                            class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example">
-                                        <option selected disabled>Выберите кафедру</option>
-                                        @foreach($departments as $department)
-                                            <option class="department" value="{{ $department->id }}">
-                                                {{ $department->department }}
-                                            </option>
-                                        @endforeach
-                                    </select>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="fioDean">Декан</label>
+                                    <input type="text" name="fioDean" class="form-control" id="fioDean"
+                                           placeholder="Введите ФИО декана" required>
                                 </div>
                             </div>
                             <!-- /.card-body -->

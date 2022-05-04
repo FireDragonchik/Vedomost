@@ -1,30 +1,32 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\EducationForm;
 use Illuminate\Http\Request;
 
-class FormOfEducationController extends Controller
+class EducationFormController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        //
+        $educationForms = EducationForm::orderBy('id')->get();
+        return view('admin.educationForm.index', compact(['educationForms']));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
-        //
+        return view('admin.educationForm.create');
     }
 
     /**
@@ -35,7 +37,11 @@ class FormOfEducationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $new_educationForm = new EducationForm();
+        $new_educationForm->educationForm = $request->educationForm;
+        $new_educationForm->save();
+
+        return redirect()->back()->withSuccess('Форма обучения успешно добавлена!');
     }
 
     /**
@@ -53,11 +59,11 @@ class FormOfEducationController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\EducationForm  $educationForm
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(EducationForm $educationForm)
     {
-        //
+        return view('admin.educationForm.edit', compact(['educationForm']));
     }
 
     /**
@@ -69,7 +75,10 @@ class FormOfEducationController extends Controller
      */
     public function update(Request $request, EducationForm $educationForm)
     {
-        //
+        $educationForm->educationForm = $request->educationForm;
+        $educationForm->save();
+
+        return redirect()->back()->withSuccess('Форма обучения успешно обновлена!');
     }
 
     /**
@@ -80,6 +89,7 @@ class FormOfEducationController extends Controller
      */
     public function destroy(EducationForm $educationForm)
     {
-        //
+        $educationForm->delete();
+        return redirect()->back()->withSuccess('Форма обучения была успешно удалена!');
     }
 }

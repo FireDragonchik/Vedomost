@@ -13,13 +13,25 @@ class Group extends Model
         'id',
         'groupCode',
         'course_id',
-        'formOfEducation_id',
-        'graduateDegree_id',
+        'education_form_id',
+        'graduate_degree_id',
         'numberOfStudents',
         'specialty_id'
     ];
 
     public $timestamps = false;
+
+    public function course(){
+        return $this->belongsTo(Course::class);
+    }
+
+    public function educationForm(){
+        return $this->belongsTo(EducationForm::class);
+    }
+
+    public function graduateDegree(){
+        return $this->belongsTo(GraduateDegree::class);
+    }
 
     public function specialty(){
         return $this->belongsTo(Specialty::class);

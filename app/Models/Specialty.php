@@ -16,4 +16,9 @@ class Specialty extends Model
     ];
 
     public $timestamps = false;
+
+    public function faculty(){
+
+        return $this->belongsTo(Faculty::class);
+    }
 }

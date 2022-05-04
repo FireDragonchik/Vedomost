@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\GraduateDegree;
 use Illuminate\Http\Request;
 
@@ -10,21 +11,22 @@ class GraduateDegreeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        //
+        $graduateDegrees = GraduateDegree::orderBy('id')->get();
+        return view('admin.graduateDegree.index', compact(['graduateDegrees']));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
-        //
+        return view('admin.graduateDegree.create');
     }
 
     /**
@@ -35,7 +37,12 @@ class GraduateDegreeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $new_graduateDegree= new GraduateDegree();
+        $new_graduateDegree->graduateDegreeShort = $request->graduateDegreeShort;
+        $new_graduateDegree->graduateDegreeFull = $request->graduateDegreeFull;
+        $new_graduateDegree->save();
+
+        return redirect()->back()->withSuccess('Ступень образования успешно добавлена!');
     }
 
     /**
@@ -53,11 +60,11 @@ class GraduateDegreeController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\GraduateDegree  $graduateDegree
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(GraduateDegree $graduateDegree)
     {
-        //
+        return view('admin.graduateDegree.edit', compact(['graduateDegree']));
     }
 
     /**
@@ -69,7 +76,11 @@ class GraduateDegreeController extends Controller
      */
     public function update(Request $request, GraduateDegree $graduateDegree)
     {
-        //
+        $graduateDegree->graduateDegreeShort = $request->graduateDegreeShort;
+        $graduateDegree->graduateDegreeFull = $request->graduateDegreeFull;
+        $graduateDegree->save();
+
+        return redirect()->back()->withSuccess('Ступень образования успешно обновлена!');
     }
 
     /**
@@ -80,6 +91,7 @@ class GraduateDegreeController extends Controller
      */
     public function destroy(GraduateDegree $graduateDegree)
     {
-        //
+        $graduateDegree->delete();
+        return redirect()->back()->withSuccess('Ступень образования была успешно удалена!');
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Добавить преподавателя')
+@section('title', 'Добавить ступень образования')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Добавить преподавателя</h1>
+                    <h1 class="m-0">Добавить ступень образования</h1>
                 </div><!-- /.c  ol -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -30,31 +30,20 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('teacher.store') }}" method="POST">
+                        <form action="{{ route('graduateDegree.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="fioTeacher">ФИО преподавателя</label>
-                                    <input type="text" name="fioTeacher" class="form-control" id="fioTeacher"
-                                           placeholder="Введите ФИО преподавателя" required>
+                                    <label for="graduateDegreeShort">Наименование ступени образования (краткое)</label>
+                                    <input type="text" name="graduateDegreeShort" class="form-control" id="graduateDegreeShort"
+                                           placeholder="Введите наименование ступени образования (краткое)" required>
                                 </div>
+                            </div>
+                            <div class="card-body">
                                 <div class="form-group">
-                                    <label for="position">Должность</label>
-                                    <input type="text" name="position" class="form-control" id="position"
-                                           placeholder="Введите должность преподавателя" required>
-                                </div>
-                                <div class="card-body">
-                                    <label class="form-label" for="departmentSelect">Кафедра</label>
-                                    <select id="departmentSelect" name="department_id"
-                                            class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example">
-                                        <option selected disabled>Выберите кафедру</option>
-                                        @foreach($departments as $department)
-                                            <option class="department" value="{{ $department->id }}">
-                                                {{ $department->department }}
-                                            </option>
-                                        @endforeach
-                                    </select>
+                                    <label for="graduateDegreeShort">Наименование ступени образования (полное)</label>
+                                    <input type="text" name="graduateDegreeFull" class="form-control" id="graduateDegreeFull"
+                                           placeholder="Введите наименование ступени образования (полное)" required>
                                 </div>
                             </div>
                             <!-- /.card-body -->
