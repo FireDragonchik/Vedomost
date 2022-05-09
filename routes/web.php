@@ -39,4 +39,6 @@ Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
     Route::resource('educationForm', \App\Http\Controllers\Admin\EducationFormController::class);
     Route::resource('course', \App\Http\Controllers\Admin\CourseController::class);
     Route::resource('group', \App\Http\Controllers\Admin\GroupController::class);
+    Route::resource('student', \App\Http\Controllers\Admin\StudentController::class);
+    Route::resource('discipline', \App\Http\Controllers\Admin\DisciplineController::class);
 });

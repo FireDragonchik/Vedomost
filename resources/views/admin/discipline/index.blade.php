@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Все группы')
+@section('title', 'Все дисциплины')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Все группы</h1>
+                    <h1 class="m-0">Все дисциплины</h1>
                 </div><!-- /.c  ol -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -33,57 +33,39 @@
                                 ID
                             </th>
                             <th style="width: 7%">
-                                Шифр группы
+                                Краткое наименование дисциплины
                             </th>
                             <th style="width: 10%">
-                                Курс
+                                Полное наименование дисциплины
                             </th>
                             <th style="width: 10%">
-                                Форма обучения
-                            </th>
-                            <th style="width: 12%">
-                                Ступень образования
-                            </th>
-                            <th style="width: 10%">
-                                Количество студентов
-                            </th>
-                            <th style="width: 25%">
-                                Наименование специальности
+                                Преподаватель
                             </th>
                             <th style="width:30%"></th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($groups as $group)
+                        @foreach($disciplines as $discipline)
                             <tr>
                                 <td>
-                                    {{ $group->id }}
+                                    {{ $discipline->id }}
                                 </td>
                                 <td>
-                                    {{ $group->groupCode }}
+                                    {{ $discipline->shortNameOfDiscipline }}
                                 </td>
                                 <td>
-                                    {{ $group->course->course }}
+                                    {{ $discipline->fullNameOfDiscipline }}
                                 </td>
                                 <td>
-                                    {{ $group->educationForm->educationForm }}
-                                </td>
-                                <td>
-                                    {{ $group->graduateDegree->graduateDegreeShort }}
-                                </td>
-                                <td>
-                                    {{ $group->numberOfStudents }}
-                                </td>
-                                <td>
-                                    {{ $group->specialty->fullNameOfSpecialty }}
+                                    {{ $discipline->teacher->fioTeacher }}
                                 </td>
                                 <td class="project-actions text-right">
-                                    <a class="btn btn-info btn-sm" href="{{ route('group.edit', $group->id) }}">
+                                    <a class="btn btn-info btn-sm" href="{{ route('discipline.edit', $discipline->id) }}">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Редактировать
                                     </a>
-                                    <form action="{{ route('group.destroy', $group->id) }}" method="POST"
+                                    <form action="{{ route('discipline.destroy', $discipline->id) }}" method="POST"
                                           style="display: inline-block">
                                         @csrf
                                         @method('DELETE')
@@ -102,7 +84,7 @@
                 <!-- /.card-body -->
             </div>
         </div><!-- /.container-fluid -->
-        {{ $groups->withQueryString()->links() }}
+        {{ $disciplines->withQueryString()->links() }}
     </section>
     <!-- /.content -->
 @endsection

@@ -32,7 +32,7 @@
                     <div class="container header-top-container">
                         <div class="authentication">
                             @if(!empty(@auth()->user()) && @auth()->user()->hasRole('admin'))
-                                <a href="{{ route('homeAdmin') }}">Админ-панель &nbsp/&nbsp</a>
+                                <a class="link" href="{{ route('homeAdmin') }}">Админ-панель &nbsp/&nbsp</a>
                             @endif
                             @auth
                                 <a href="{{ route('personalAccount') }}">Личный кабинет &nbsp/&nbsp</a>

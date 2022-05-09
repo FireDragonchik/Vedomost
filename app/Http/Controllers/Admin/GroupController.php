@@ -19,7 +19,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $groups = Group::all();
+        $groups = Group::paginate(10);
         return view('admin.group.index', compact(['groups']));
     }
 

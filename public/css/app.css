@@ -54,3 +54,7 @@ a {
     text-align: left;
 }
 
+.pagination{
+    float: right;
+    margin-top: 10px;
+}

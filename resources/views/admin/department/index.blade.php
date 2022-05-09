@@ -72,6 +72,7 @@
                 <!-- /.card-body -->
             </div>
         </div><!-- /.container-fluid -->
+        {{ $departments->withQueryString()->links() }}
     </section>
     <!-- /.content -->
 @endsection
