@@ -63,7 +63,7 @@
                         Контакты
                     </div>
                     <div class="footer-content">
-                        80177777777
+                        8 017 356 96 06
                     </div>
                 </div>
             </div>
