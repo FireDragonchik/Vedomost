@@ -38,7 +38,7 @@
                             <th style="width: 10%">
                                 Группа
                             </th>
-                            <th style="width: 10%">
+                            <th style="width: 25%">
                                 ФИО студента
                             </th>
                             <th style="width: 12%">

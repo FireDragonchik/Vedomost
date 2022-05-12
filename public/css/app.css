@@ -20,9 +20,11 @@ a {
 }
 .content {
     flex: 1 0 auto;
+    margin: 0 15em 0 15em;
 }
 .footer {
     flex: 0 0 auto;
+    background-color: #cacaca;
 }
 
 .container {

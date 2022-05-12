@@ -28,7 +28,7 @@ Route::get('/personalAccount', [PersonalAccountController::class, 'index'])->nam
 Route::get('/personalAccountInfo', [PersonalAccountController::class, 'getUser'])->name('personalAccountInfo');
 Route::get('/report', [ReportController::class, 'index'])->name('report');;
 
-Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
+Route::middleware(['role:Admin'])->prefix('admin_panel')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin');
 
     Route::resource('teacher', \App\Http\Controllers\Admin\TeacherController::class);

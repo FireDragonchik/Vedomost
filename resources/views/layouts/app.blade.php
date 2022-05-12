@@ -31,7 +31,7 @@
                 <div class="header-content-top">
                     <div class="container header-top-container">
                         <div class="authentication">
-                            @if(!empty(@auth()->user()) && @auth()->user()->hasRole('admin'))
+                            @if(!empty(@auth()->user()) && @auth()->user()->hasRole('Admin'))
                                 <a class="link" href="{{ route('homeAdmin') }}">Админ-панель &nbsp/&nbsp</a>
                             @endif
                             @auth
