@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UsersControllers;
 
-use App\Models\Discipline;
+use App\Http\Controllers\Controller;
+use App\Models\Group;
 use Illuminate\Http\Request;
 
-class DisciplineController extends Controller
+class GroupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,6 +28,14 @@ class DisciplineController extends Controller
         //
     }
 
+    public function group(Request $request){
+
+//        $group = Group::find($request->groupId);
+//
+//        return view('report',
+//        )
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -41,10 +50,10 @@ class DisciplineController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Discipline  $discipline
+     * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function show(Discipline $discipline)
+    public function show(Group $group)
     {
         //
     }
@@ -52,10 +61,10 @@ class DisciplineController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Discipline  $discipline
+     * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function edit(Discipline $discipline)
+    public function edit(Group $group)
     {
         //
     }
@@ -64,10 +73,10 @@ class DisciplineController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Discipline  $discipline
+     * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Discipline $discipline)
+    public function update(Request $request, Group $group)
     {
         //
     }
@@ -75,10 +84,10 @@ class DisciplineController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Discipline  $discipline
+     * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Discipline $discipline)
+    public function destroy(Group $group)
     {
         //
     }

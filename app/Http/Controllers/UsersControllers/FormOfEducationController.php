@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UsersControllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\EducationForm;
 use Illuminate\Http\Request;
 

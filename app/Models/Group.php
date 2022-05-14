@@ -15,7 +15,6 @@ class Group extends Model
         'course_id',
         'education_form_id',
         'graduate_degree_id',
-        'numberOfStudents',
         'specialty_id'
     ];
 
@@ -35,5 +34,9 @@ class Group extends Model
 
     public function specialty(){
         return $this->belongsTo(Specialty::class);
+    }
+
+    public function students(){
+        return $this->hasMany(Student::class)->orderBy('studentId');
     }
 }

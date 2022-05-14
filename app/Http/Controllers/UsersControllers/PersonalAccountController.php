@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UsersControllers;
 
-use App\Filters\TeacherFilter;
-use App\Models\Teacher;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
 class PersonalAccountController extends Controller
 {

@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Все дисциплины')
+@section('title', 'Все учебные семестры')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Все дисциплины</h1>
+                    <h1 class="m-0">Все учебные семестры</h1>
                 </div><!-- /.c  ol -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -32,40 +32,28 @@
                             <th style="width: 1%">
                                 ID
                             </th>
-                            <th style="width: 20%">
-                                Краткое наименование дисциплины
+                            <th style="width: 30%">
+                                Учебный семестр
                             </th>
-                            <th style="width: 20%">
-                                Полное наименование дисциплины
-                            </th>
-                            <th style="width: 20%">
-                                Преподаватель
-                            </th>
-                            <th style="width:20%"></th>
+                            <th style="width:30%"></th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($disciplines as $discipline)
+                        @foreach($semesters as $semester)
                             <tr>
                                 <td>
-                                    {{ $discipline->id }}
+                                    {{ $semester->id }}
                                 </td>
                                 <td>
-                                    {{ $discipline->shortNameOfDiscipline }}
-                                </td>
-                                <td>
-                                    {{ $discipline->fullNameOfDiscipline }}
-                                </td>
-                                <td>
-                                    {{ $discipline->teacher->fioTeacher }}
+                                    {{ $semester->semester }}
                                 </td>
                                 <td class="project-actions text-right">
-                                    <a class="btn btn-info btn-sm" href="{{ route('discipline.edit', $discipline->id) }}">
+                                    <a class="btn btn-info btn-sm" href="{{ route('semester.edit', $semester->id) }}">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Редактировать
                                     </a>
-                                    <form action="{{ route('discipline.destroy', $discipline->id) }}" method="POST"
+                                    <form action="{{ route('semester.destroy', $semester->id) }}" method="POST"
                                           style="display: inline-block">
                                         @csrf
                                         @method('DELETE')
@@ -84,7 +72,7 @@
                 <!-- /.card-body -->
             </div>
         </div><!-- /.container-fluid -->
-        {{ $disciplines->withQueryString()->links() }}
+        {{ $semesters->withQueryString()->links() }}
     </section>
     <!-- /.content -->
 @endsection

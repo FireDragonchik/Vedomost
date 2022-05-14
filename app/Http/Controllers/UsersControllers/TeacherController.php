@@ -1,29 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UsersControllers;
 
-use App\Filters\StudentFilter;
-use App\Models\Group;
-use App\Models\Report;
-use App\Models\Specialty;
-use App\Models\Student;
+use App\Http\Controllers\Controller;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
-class ReportController extends Controller
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param StudentFilter $filter
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\Response
      */
-    public function index(StudentFilter $filter)
+    public function index()
     {
-        $students = Student::filter($filter)->get();
-        $groups = Group::all();
-        $specialties = Specialty::all();
-        return view('report',
-            compact(['students', 'groups', 'specialties']));
+        //
     }
 
     /**
@@ -50,10 +42,10 @@ class ReportController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Report  $report
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param  \App\Models\Teacher  $teacher
+     * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Teacher $teacher)
     {
         //
     }
@@ -61,10 +53,10 @@ class ReportController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Report  $report
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function edit(Report $report)
+    public function edit(Teacher $teacher)
     {
         //
     }
@@ -73,10 +65,10 @@ class ReportController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Report  $report
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Report $report)
+    public function update(Request $request, Teacher $teacher)
     {
         //
     }
@@ -84,10 +76,10 @@ class ReportController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Report  $report
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Report $report)
+    public function destroy(Teacher $teacher)
     {
         //
     }

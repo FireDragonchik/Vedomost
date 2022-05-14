@@ -9,7 +9,7 @@
 @auth
 @section('content')
     <div class="container">
-        <section id="recommendations" class="section">
+        <section class="section">
             <div class="section-title section-title-center">
                 <h4>Ведомость № 1 осеннего семестра 2020 года</h4>
                 <h4>По дисциплине: Основы алгоритмизации и программирования</h4>

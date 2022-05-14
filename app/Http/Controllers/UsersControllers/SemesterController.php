@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UsersControllers;
 
-use App\Models\Faculty;
+use App\Http\Controllers\Controller;
+use App\Models\Semester;
 use Illuminate\Http\Request;
 
-class FacultyController extends Controller
+class SemesterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class FacultyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Faculty  $faculty
+     * @param  \App\Models\Semester  $semester
      * @return \Illuminate\Http\Response
      */
-    public function show(Faculty $faculty)
+    public function show(Semester $semester)
     {
         //
     }
@@ -52,10 +53,10 @@ class FacultyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Faculty  $faculty
+     * @param  \App\Models\Semester  $semester
      * @return \Illuminate\Http\Response
      */
-    public function edit(Faculty $faculty)
+    public function edit(Semester $semester)
     {
         //
     }
@@ -64,10 +65,10 @@ class FacultyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Faculty  $faculty
+     * @param  \App\Models\Semester  $semester
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Faculty $faculty)
+    public function update(Request $request, Semester $semester)
     {
         //
     }
@@ -75,10 +76,10 @@ class FacultyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Faculty  $faculty
+     * @param  \App\Models\Semester  $semester
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Faculty $faculty)
+    public function destroy(Semester $semester)
     {
         //
     }

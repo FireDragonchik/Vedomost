@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UsersControllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Teacher;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {

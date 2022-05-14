@@ -67,7 +67,8 @@ class SpecialtyController extends Controller
      */
     public function edit(Specialty $specialty)
     {
-        return view('admin.specialty.edit', compact(['specialty']));
+        $faculties = Faculty::all();
+        return view('admin.specialty.edit', compact(['specialty', 'faculties']));
     }
 
     /**

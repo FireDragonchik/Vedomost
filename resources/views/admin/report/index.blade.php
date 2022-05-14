@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Все дисциплины')
+@section('title', 'Все ведомости')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Все дисциплины</h1>
+                    <h1 class="m-0">Все ведомости</h1>
                 </div><!-- /.c  ol -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -32,40 +32,52 @@
                             <th style="width: 1%">
                                 ID
                             </th>
-                            <th style="width: 20%">
-                                Краткое наименование дисциплины
+                            <th style="width: 7%">
+                                Год обучения
                             </th>
-                            <th style="width: 20%">
-                                Полное наименование дисциплины
+                            <th style="width: 10%">
+                                Семестр
+                            </th>
+                            <th style="width: 10%">
+                                Группа
+                            </th>
+                            <th>
+                                Дисциплина
                             </th>
                             <th style="width: 20%">
                                 Преподаватель
                             </th>
-                            <th style="width:20%"></th>
+                            <th style="width:30%"></th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($disciplines as $discipline)
+                        @foreach($reports as $report)
                             <tr>
                                 <td>
-                                    {{ $discipline->id }}
+                                    <a href="{{ route('report.show', $report->id) }}"> {{ $report->id }} </a>
                                 </td>
                                 <td>
-                                    {{ $discipline->shortNameOfDiscipline }}
+                                    {{ $report->year->year }}
                                 </td>
                                 <td>
-                                    {{ $discipline->fullNameOfDiscipline }}
+                                    {{ $report->semester->semester }}
                                 </td>
                                 <td>
-                                    {{ $discipline->teacher->fioTeacher }}
+                                    {{ $report->group->groupCode }}
+                                </td>
+                                <td>
+                                    {{ $report->discipline->fullNameOfDiscipline }}
+                                </td>
+                                <td>
+                                    {{ $report->discipline->teacher->fioTeacher }}
                                 </td>
                                 <td class="project-actions text-right">
-                                    <a class="btn btn-info btn-sm" href="{{ route('discipline.edit', $discipline->id) }}">
+                                    <a class="btn btn-info btn-sm" href="{{ route('report.edit', $report->id) }}">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Редактировать
                                     </a>
-                                    <form action="{{ route('discipline.destroy', $discipline->id) }}" method="POST"
+                                    <form action="{{ route('report.destroy', $report->id) }}" method="POST"
                                           style="display: inline-block">
                                         @csrf
                                         @method('DELETE')
@@ -84,7 +96,7 @@
                 <!-- /.card-body -->
             </div>
         </div><!-- /.container-fluid -->
-        {{ $disciplines->withQueryString()->links() }}
+        {{ $reports->withQueryString()->links() }}
     </section>
     <!-- /.content -->
 @endsection

@@ -34,7 +34,7 @@ class DisciplineController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -51,7 +51,7 @@ class DisciplineController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Discipline  $discipline
+     * @param \App\Models\Discipline $discipline
      * @return \Illuminate\Http\Response
      */
     public function show(Discipline $discipline)
@@ -62,19 +62,20 @@ class DisciplineController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Discipline  $discipline
+     * @param \App\Models\Discipline $discipline
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Discipline $discipline)
     {
-        return view('admin.discipline.edit', compact(['discipline']));
+        $teachers = Teacher::all();
+        return view('admin.discipline.edit', compact(['discipline', 'teachers']));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Discipline  $discipline
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Discipline $discipline
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Discipline $discipline)
@@ -90,7 +91,7 @@ class DisciplineController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Discipline  $discipline
+     * @param \App\Models\Discipline $discipline
      * @return \Illuminate\Http\Response
      */
     public function destroy(Discipline $discipline)

@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Добавить группу')
+@section('title', 'Добавить ведомость')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Добавить группу</h1>
+                    <h1 class="m-0">Добавить ведомость</h1>
                 </div><!-- /.c  ol -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -30,68 +30,60 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('group.store') }}" method="POST">
+                        <form action="{{ route('report.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label for="groupCode">Шифр группы</label>
-                                    <input type="text" name="groupCode" class="form-control"
-                                           id="groupCode"
-                                           placeholder="Введите шифр группы">
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label" for="courseSelect">Курс</label>
+                                <label class="form-label">Год обучения</label>
                                 <br>
-                                <select id="courseSelect" name="course_id"
+                                <select name="year_id"
                                         class="form-select form-select-sm"
                                         aria-label=".form-select-sm example">
-                                    <option selected disabled>Выберите курс</option>
-                                    @foreach($courses as $course)
-                                        <option class="course" value="{{ $course->id }}">
-                                            {{ $course->course }}
+                                    <option selected disabled>Выберите год обучения</option>
+                                    @foreach($years as $year)
+                                        <option class="course" value="{{ $year->id }}">
+                                            {{ $year->year }}
                                         </option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="card-body">
-                                <label class="form-label" for="educationFormSelect">Форма обучения</label>
+                                <label class="form-label">Семестр</label>
                                 <br>
-                                <select id="educationFormSelect" name="education_form_id"
+                                <select name="semester_id"
                                         class="form-select form-select-sm"
                                         aria-label=".form-select-sm example">
-                                    <option selected disabled>Выберите форму обучения</option>
-                                    @foreach($educationForms as $educationForm)
-                                        <option class="educationForm" value="{{ $educationForm->id }}">
-                                            {{ $educationForm->educationForm }}
+                                    <option selected disabled>Выберите семестр</option>
+                                    @foreach($semesters as $semester)
+                                        <option class="course" value="{{ $semester->id }}">
+                                            {{ $semester->semester }}
                                         </option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="card-body">
-                                <label class="form-label" for="graduateDegreeSelect">Ступень образования</label>
+                                <label class="form-label">Группа</label>
                                 <br>
-                                <select id="graduateDegreeSelect" name="graduate_degree_id"
+                                <select name="group_id"
                                         class="form-select form-select-sm"
                                         aria-label=".form-select-sm example">
-                                    <option selected disabled>Выберите ступень образования</option>
-                                    @foreach($graduateDegrees as $graduateDegree)
-                                        <option class="graduateDegree" value="{{ $graduateDegree->id }}">
-                                            {{ $graduateDegree->graduateDegreeShort }}
+                                    <option selected disabled>Выберите группу</option>
+                                    @foreach($groups as $group)
+                                        <option class="course" value="{{ $group->id }}">
+                                            {{ $group->groupCode }}
                                         </option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="card-body">
-                                <label class="form-label" for="graduateDegreeSelect">Специальность</label>
+                                <label class="form-label">Дисциплина</label>
                                 <br>
-                                <select id="specialtySelect" name="specialty_id"
+                                <select name="discipline_id"
                                         class="form-select form-select-sm"
                                         aria-label=".form-select-sm example">
-                                    <option selected disabled>Выберите специальность</option>
-                                    @foreach($specialties as $specialty)
-                                        <option class="specialty" value="{{ $specialty->id }}">
-                                            {{ $specialty->shortNameOfSpecialty }}
+                                    <option selected disabled>Выберите дисциплину</option>
+                                    @foreach($disciplines as $discipline)
+                                        <option class="course" value="{{ $discipline->id }}">
+                                            {{ $discipline->shortNameOfDiscipline }}
                                         </option>
                                     @endforeach
                                 </select>

@@ -72,7 +72,7 @@
                                     {{ $group->graduateDegree->graduateDegreeShort }}
                                 </td>
                                 <td>
-                                    {{ $group->numberOfStudents }}
+                                    {{ @count($group->students) }}
                                 </td>
                                 <td>
                                     {{ $group->specialty->fullNameOfSpecialty }}

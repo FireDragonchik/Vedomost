@@ -43,9 +43,9 @@
                                     <input type="text" name="position" class="form-control" id="position"
                                            placeholder="Введите должность преподавателя" required>
                                 </div>
-                                <div class="card-body">
-                                    <label class="form-label" for="departmentSelect">Кафедра</label>
-                                    <select id="departmentSelect" name="department_id"
+                                <div class="form-group">
+                                    <label for="departmentSelect">Кафедра</label>
+                                    <select name="department_id"
                                             class="form-select form-select-sm"
                                             aria-label=".form-select-sm example">
                                         <option selected disabled>Выберите кафедру</option>

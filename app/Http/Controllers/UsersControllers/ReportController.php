@@ -1,20 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UsersControllers;
 
+use App\Filters\StudentFilter;
+use App\Http\Controllers\Controller;
+use App\Models\Group;
+use App\Models\Report;
+use App\Models\Specialty;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class ReportController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param StudentFilter $filter
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index(StudentFilter $filter)
     {
-        //
+        $students = Student::filter($filter)->get();
+        $groups = Group::all();
+        $specialties = Specialty::all();
+        return view('report',
+            compact(['students', 'groups', 'specialties']));
     }
 
     /**
@@ -41,21 +51,21 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Report  $report
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show(Student $student)
+    public function show()
     {
-       //
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit(Report $report)
     {
         //
     }
@@ -64,10 +74,10 @@ class StudentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, Report $report)
     {
         //
     }
@@ -75,10 +85,10 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(Report $report)
     {
         //
     }

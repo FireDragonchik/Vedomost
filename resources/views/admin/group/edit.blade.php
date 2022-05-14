@@ -36,7 +36,8 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="groupCode">Шифр группы</label>
-                                    <input type="text" value="{{ $group->groupCode }}" name="groupCode" class="form-control"
+                                    <input type="text" value="{{ $group->groupCode }}" name="groupCode"
+                                           class="form-control"
                                            id="groupCode"
                                            placeholder="Введите шифр группы">
                                 </div>
@@ -85,14 +86,6 @@
                                         </option>
                                     @endforeach
                                 </select>
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="numberOfStudents">Количество студентов</label>
-                                    <input type="text" name="numberOfStudents" value="{{ $group->numberOfStudents }}" class="form-control"
-                                           id="numberOfStudents"
-                                           placeholder="Введите количество студентов">
-                                </div>
                             </div>
                             <div class="card-body">
                                 <label class="form-label" for="graduateDegreeSelect">Наименование специальности</label>

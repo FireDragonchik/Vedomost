@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Specialty;
+use App\Http\Controllers\Controller;
+use App\Models\Attestation;
+use App\Models\Report;
 use Illuminate\Http\Request;
 
-class SpecialtyController extends Controller
+class AttestationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,11 +22,12 @@ class SpecialtyController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param \App\Models\Report $report
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function create()
+    public function create(Report $report)
     {
-        //
+        return view('admin.attestation.create', compact(['report']));
     }
 
     /**
@@ -41,10 +44,10 @@ class SpecialtyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Specialty  $specialty
+     * @param  \App\Models\Attestation  $attestation
      * @return \Illuminate\Http\Response
      */
-    public function show(Specialty $specialty)
+    public function show(Attestation $attestation)
     {
         //
     }
@@ -52,10 +55,10 @@ class SpecialtyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Specialty  $specialty
+     * @param  \App\Models\Attestation  $attestation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Specialty $specialty)
+    public function edit(Attestation $attestation)
     {
         //
     }
@@ -64,10 +67,10 @@ class SpecialtyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Specialty  $specialty
+     * @param  \App\Models\Attestation  $attestation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Specialty $specialty)
+    public function update(Request $request, Attestation $attestation)
     {
         //
     }
@@ -75,10 +78,10 @@ class SpecialtyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Specialty  $specialty
+     * @param  \App\Models\Attestation  $attestation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Specialty $specialty)
+    public function destroy(Attestation $attestation)
     {
         //
     }

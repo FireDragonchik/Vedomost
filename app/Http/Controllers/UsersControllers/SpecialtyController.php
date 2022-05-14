@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UsersControllers;
 
-use App\Models\Semester;
+use App\Http\Controllers\Controller;
+use App\Models\Specialty;
 use Illuminate\Http\Request;
 
-class SemesterController extends Controller
+class SpecialtyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class SemesterController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Semester  $semester
+     * @param  \App\Models\Specialty  $specialty
      * @return \Illuminate\Http\Response
      */
-    public function show(Semester $semester)
+    public function show(Specialty $specialty)
     {
         //
     }
@@ -52,10 +53,10 @@ class SemesterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Semester  $semester
+     * @param  \App\Models\Specialty  $specialty
      * @return \Illuminate\Http\Response
      */
-    public function edit(Semester $semester)
+    public function edit(Specialty $specialty)
     {
         //
     }
@@ -64,10 +65,10 @@ class SemesterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Semester  $semester
+     * @param  \App\Models\Specialty  $specialty
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Semester $semester)
+    public function update(Request $request, Specialty $specialty)
     {
         //
     }
@@ -75,10 +76,10 @@ class SemesterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Semester  $semester
+     * @param  \App\Models\Specialty  $specialty
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Semester $semester)
+    public function destroy(Specialty $specialty)
     {
         //
     }

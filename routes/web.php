@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\PersonalAccountController;
-use App\Http\Controllers\ReportController;
+use App\Http\Controllers\UsersControllers\PersonalAccountController;
+use App\Http\Controllers\UsersControllers\ReportController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -41,4 +41,8 @@ Route::middleware(['role:Admin'])->prefix('admin_panel')->group(function () {
     Route::resource('group', \App\Http\Controllers\Admin\GroupController::class);
     Route::resource('student', \App\Http\Controllers\Admin\StudentController::class);
     Route::resource('discipline', \App\Http\Controllers\Admin\DisciplineController::class);
+    Route::resource('year', \App\Http\Controllers\Admin\YearController::class);
+    Route::resource('semester', \App\Http\Controllers\Admin\SemesterController::class);
+    Route::resource('report', \App\Http\Controllers\Admin\ReportController::class);
+    Route::resource('attestation', \App\Http\Controllers\Admin\AttestationController::class);
 });

@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Редактирование факультета')
+@section('title', 'Редактировать специальность')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Редактирование факультета {{ $faculty->shortNameOfFaculty }}</h1>
+                    <h1 class="m-0">Редактировать специальность {{ $specialty->fullNameOfSpecialty }}</h1>
                 </div><!-- /.c  ol -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -30,33 +30,44 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('faculty.update', $faculty->id) }}" method="POST">
+                        <form action="{{ route('specialty.update', $specialty->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="shortNameOfFaculty">Краткое наименование факультета</label>
-                                    <input type="text" name="shortNameOfFaculty" value="{{ $faculty->shortNameOfFaculty }}" class="form-control" id="shortNameOfFaculty"
-                                           placeholder="Введите краткое наименование факультета" required>
+                                    <label for="shortNameOfSpecialty">Краткое наименование специальности</label>
+                                    <input type="text" name="shortNameOfSpecialty" class="form-control"
+                                           id="shortNameOfSpecialty"
+                                           value="{{ $specialty->shortNameOfSpecialty }}"
+                                           placeholder="Введите краткое наименование специальности" required>
                                 </div>
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="fullNameOfFaculty">Полное наименование факультета</label>
-                                    <input type="text" name="fullNameOfFaculty" value="{{ $faculty->fullNameOfFaculty }}" class="form-control" id="fullNameOfFaculty"
-                                           placeholder="Введите полное наименование факультета" required>
+                                    <label for="fullNameOfSpecialty">Полное наименование специальности</label>
+                                    <input type="text" name="fullNameOfSpecialty" class="form-control"
+                                           id="fullNameOfSpecialty"
+                                           value="{{ $specialty->fullNameOfSpecialty }}"
+                                           placeholder="Введите полное наименование специальности" required>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label for="fioDean">Декан</label>
-                                    <input type="text" name="fioDean" value="{{ $faculty->fioDean }}" class="form-control" id="fioDean"
-                                           placeholder="Введите ФИО декана" required>
-                                </div>
+                                <label class="form-label" for="facultySelect">Факультет</label>
+                                <select id="facultySelect" name="faculty_id"
+                                        class="form-select form-select-sm"
+                                        aria-label=".form-select-sm example"
+                                        value="{{ $specialty->faculty_id }}"
+                                        required>
+                                    @foreach($faculties as $faculty)
+                                        <option class="department" value="{{ $faculty->id }}">
+                                            {{ $faculty->shortNameOfFaculty }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Обновить</button>
+                                <button type="submit" class="btn btn-primary">Добавить</button>
                             </div>
                         </form>
                     </div>

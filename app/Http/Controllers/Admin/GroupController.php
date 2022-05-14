@@ -40,7 +40,7 @@ class GroupController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -60,7 +60,7 @@ class GroupController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Group  $group
+     * @param \App\Models\Group $group
      * @return \Illuminate\Http\Response
      */
     public function show(Group $group)
@@ -71,19 +71,23 @@ class GroupController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Group  $group
+     * @param \App\Models\Group $group
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Group $group)
     {
-        return view('admin.group.edit', compact(['group']));
+        $courses = Course::all();
+        $educationForms = EducationForm::all();
+        $graduateDegrees = GraduateDegree::all();
+        $specialties = Specialty::all();
+        return view('admin.group.edit', compact(['group', 'courses', 'educationForms', 'graduateDegrees', 'specialties']));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Group  $group
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Group $group
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Group $group)
@@ -102,12 +106,12 @@ class GroupController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Group  $group
+     * @param \App\Models\Group $group
      * @return \Illuminate\Http\Response
      */
     public function destroy(Group $group)
     {
-       $group->delete();
-       return redirect()->back()->withSuccess('Группа была успешна удалена!');
+        $group->delete();
+        return redirect()->back()->withSuccess('Группа была успешна удалена!');
     }
 }

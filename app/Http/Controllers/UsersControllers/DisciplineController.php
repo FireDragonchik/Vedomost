@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UsersControllers;
 
-use App\Models\Department;
+use App\Http\Controllers\Controller;
+use App\Models\Discipline;
 use Illuminate\Http\Request;
 
-class DepartmentController extends Controller
+class DisciplineController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class DepartmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Department  $department
+     * @param  \App\Models\Discipline  $discipline
      * @return \Illuminate\Http\Response
      */
-    public function show(Department $department)
+    public function show(Discipline $discipline)
     {
         //
     }
@@ -52,10 +53,10 @@ class DepartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Department  $department
+     * @param  \App\Models\Discipline  $discipline
      * @return \Illuminate\Http\Response
      */
-    public function edit(Department $department)
+    public function edit(Discipline $discipline)
     {
         //
     }
@@ -64,10 +65,10 @@ class DepartmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Department  $department
+     * @param  \App\Models\Discipline  $discipline
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Department $department)
+    public function update(Request $request, Discipline $discipline)
     {
         //
     }
@@ -75,10 +76,10 @@ class DepartmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Department  $department
+     * @param  \App\Models\Discipline  $discipline
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Department $department)
+    public function destroy(Discipline $discipline)
     {
         //
     }

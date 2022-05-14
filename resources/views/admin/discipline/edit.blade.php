@@ -30,7 +30,7 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('discipline.update') }}" method="POST">
+                        <form action="{{ route('discipline.update', $discipline->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
