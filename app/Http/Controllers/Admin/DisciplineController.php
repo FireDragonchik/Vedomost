@@ -45,7 +45,7 @@ class DisciplineController extends Controller
         $new_discipline->teacher_id = $request->teacher_id;
         $new_discipline->save();
 
-        return redirect()->back()->withSuccess('Дисциплина успешно добавлена!');
+        return redirect()->back()->withSuccess('Дисциплина ' . $new_discipline->fullNameOfDiscipline . ' успешно добавлена!');
     }
 
     /**
@@ -85,7 +85,7 @@ class DisciplineController extends Controller
         $discipline->teacher_id = $request->teacher_id;
         $discipline->save();
 
-        return redirect()->back()->withSuccess('Дисциплина успешно обновлена!');
+        return redirect()->back()->withSuccess('Дисциплина ' . $discipline->fullNameOfDiscipline . ' успешно обновлена!');
     }
 
     /**

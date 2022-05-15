@@ -45,7 +45,7 @@ class TeacherController extends Controller
         $new_teacher->department_id = $request->department_id;
         $new_teacher->save();
 
-        return redirect()->back()->withSuccess('Преподаватель успешно добавлен!');
+        return redirect()->back()->withSuccess('Преподаватель ' . $new_teacher->fioTeacher . ' успешно добавлен!');
     }
 
     /**
@@ -85,7 +85,7 @@ class TeacherController extends Controller
         $teacher->department_id = $request->department_id;
         $teacher->save();
 
-        return redirect()->back()->withSuccess('Преподаватель был успешно обновлен!');
+        return redirect()->back()->withSuccess('Преподаватель ' . $teacher->fioTeacher . ' был успешно обновлен!');
     }
 
     /**

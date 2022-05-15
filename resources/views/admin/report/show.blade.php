@@ -48,14 +48,15 @@
                             <td>{{$attestation->mark}}</td>
                         @endforeach
                     @endif
-                    <td>{{ $student->avgAttestation('2021-05-04', '2021-05-19') }}</td>
-                    <td>{{ $maxDate }}</td>
+                    <td>{{ $student->avgAttestation($minDate, $maxDate) }}</td>
+{{--                    <td>{{ $report }}</td>--}}
+                    <td>{{ $reportFromDB }}</td>
                 </tr>
             @endforeach
         </table>
 
         <div class="card-footer">
-            <a href="{{ route('attestation.create', $report->id) }}" class="btn-primary">Добавить отметку</a>
+            <a href="{{ route('attestation.create', $reportFromDB) }}" class="btn btn-primary">Добавить отметку</a>
         </div>
     </div>
 

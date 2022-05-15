@@ -25,11 +25,6 @@
                     @endif
                 </div>
             </div>
-            <div class="justify-content-center">
-                <div class="col-md-3">
-                    <div class="card-header"><button type="submit" class="btn btn-info">Показать информацию</button></div>
-                </div>
-            </div>
         </div>
     </form>
 @endsection

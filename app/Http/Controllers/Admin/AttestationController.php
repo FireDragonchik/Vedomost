@@ -27,13 +27,13 @@ class AttestationController extends Controller
      */
     public function create(Report $report)
     {
-        return view('admin.attestation.create', compact(['report']));
+        return view('admin.attestation.create', ['report' => $report]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -44,7 +44,7 @@ class AttestationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Attestation  $attestation
+     * @param \App\Models\Attestation $attestation
      * @return \Illuminate\Http\Response
      */
     public function show(Attestation $attestation)
@@ -55,7 +55,7 @@ class AttestationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Attestation  $attestation
+     * @param \App\Models\Attestation $attestation
      * @return \Illuminate\Http\Response
      */
     public function edit(Attestation $attestation)
@@ -66,8 +66,8 @@ class AttestationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Attestation  $attestation
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Attestation $attestation
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Attestation $attestation)
@@ -78,7 +78,7 @@ class AttestationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Attestation  $attestation
+     * @param \App\Models\Attestation $attestation
      * @return \Illuminate\Http\Response
      */
     public function destroy(Attestation $attestation)

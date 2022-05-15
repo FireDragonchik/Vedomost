@@ -32,7 +32,7 @@ class CourseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,13 +41,13 @@ class CourseController extends Controller
         $new_course->course = $request->course;
         $new_course->save();
 
-        return redirect()->back()->withSuccess('Курс успешно добавлен!');
+        return redirect()->back()->withSuccess('Курс ' . $new_course->course . ' успешно добавлен!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Course  $course
+     * @param \App\Models\Course $course
      * @return \Illuminate\Http\Response
      */
     public function show(Course $course)
@@ -58,7 +58,7 @@ class CourseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Course  $course
+     * @param \App\Models\Course $course
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Course $course)
@@ -69,8 +69,8 @@ class CourseController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Course  $course
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Course $course
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Course $course)
@@ -78,13 +78,13 @@ class CourseController extends Controller
         $course->course = $request->course;
         $course->save();
 
-        return redirect()->back()->withSuccess('Курс был успешно обновлен!');
+        return redirect()->back()->withSuccess('Курс ' . $course->course . ' был успешно обновлен!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Course  $course
+     * @param \App\Models\Course $course
      * @return \Illuminate\Http\Response
      */
     public function destroy(Course $course)

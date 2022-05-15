@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Date;
-use Illuminate\Support\Facades\DB;
 
 class Report extends Model
 {
@@ -39,17 +37,5 @@ class Report extends Model
     public function discipline()
     {
         return $this->belongsTo(Discipline::class);
-    }
-
-    /**
-     * @return false|string
-     */
-    public function maxAttestationDate()
-    {
-
-        $maxDate = DB::table('attestations')->select(DB::raw('MAX(date)'))
-            ->where('report_id', '=', $this->id)
-            ->get();
-        return $maxDate;
     }
 }

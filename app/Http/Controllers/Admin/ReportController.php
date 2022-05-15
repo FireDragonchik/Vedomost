@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Filters\StudentFilter;
 use App\Http\Controllers\Controller;
 use App\Models\Discipline;
 use App\Models\Group;
 use App\Models\Report;
 use App\Models\Semester;
-use App\Models\Specialty;
-use App\Models\Student;
 use App\Models\Year;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -66,10 +63,16 @@ class ReportController extends Controller
      */
     public function show(Report $report)
     {
-        $maxDate = DB::table('attestations')->select(DB::raw('MAX(date) as maxDate'))
+        $maxDate = DB::table('attestations')->select(DB::raw('max(date) as maxDate'))
             ->where('report_id', '=', $report->id)
+            ->first();
+        $minDate = DB::table('attestations')->select(DB::raw('min(date) as minDate'))
+            ->where('report_id', '=', $report->id)
+            ->first();
+        $reportFromDB = DB::table('reports')->select('*')
+            ->where('id', '=', $report->id)
             ->get();
-        return view('admin.report.show', compact(['report', 'maxDate']));
+        return view('admin.report.show', ['report' => $report, 'maxDate' => $maxDate->maxDate, 'minDate' => $minDate->minDate, 'reportFromDB' => $reportFromDB]);
     }
 
     /**
@@ -80,7 +83,11 @@ class ReportController extends Controller
      */
     public function edit(Report $report)
     {
-        return view('admin.report.edit', compact(['report']));
+        $years = Year::all();
+        $semesters = Semester::all();
+        $groups = Group::all();
+        $disciplines = Discipline::all();
+        return view('admin.report.edit', compact(['report', 'years', 'semesters', 'groups', 'disciplines']));
     }
 
     /**

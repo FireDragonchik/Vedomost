@@ -39,16 +39,12 @@
                                            id="shortNameOfDiscipline"
                                            placeholder="Введите краткое наименование дисциплины">
                                 </div>
-                            </div>
-                            <div class="card-body">
                                 <div class="form-group">
                                     <label for="fullNameOfDiscipline">Полное наименование дисциплины</label>
                                     <input type="text" name="fullNameOfDiscipline" class="form-control"
                                            id="fullNameOfDiscipline"
                                            placeholder="Введите полное наименование дисциплины">
                                 </div>
-                            </div>
-                            <div class="card-body">
                                 <label class="form-label" for="teacherFormSelect">Преподаватель</label>
                                 <br>
                                 <select id="teacherFormSelect" name="teacher_id"

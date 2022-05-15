@@ -32,7 +32,7 @@ class DepartmentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,13 +41,13 @@ class DepartmentController extends Controller
         $new_department->department = $request->department;
         $new_department->save();
 
-        return redirect()->back()->withSuccess('Кафедра успешно добавлена!');
+        return redirect()->back()->withSuccess('Кафедра ' . $new_department->department . ' успешно добавлена!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Department  $department
+     * @param \App\Models\Department $department
      * @return \Illuminate\Http\Response
      */
     public function show(Department $department)
@@ -58,7 +58,7 @@ class DepartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Department  $department
+     * @param \App\Models\Department $department
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Department $department)
@@ -69,8 +69,8 @@ class DepartmentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Department  $department
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Department $department
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Department $department)
@@ -78,13 +78,13 @@ class DepartmentController extends Controller
         $department->department = $request->department;
         $department->save();
 
-        return redirect()->back()->withSuccess('Кафедра была успешно обновлена!');
+        return redirect()->back()->withSuccess('Кафедра ' . $department->department . ' была успешно обновлена!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Department  $department
+     * @param \App\Models\Department $department
      * @return \Illuminate\Http\Response
      */
     public function destroy(Department $department)

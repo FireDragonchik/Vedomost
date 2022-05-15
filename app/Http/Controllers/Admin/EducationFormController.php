@@ -32,7 +32,7 @@ class EducationFormController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,13 +41,13 @@ class EducationFormController extends Controller
         $new_educationForm->educationForm = $request->educationForm;
         $new_educationForm->save();
 
-        return redirect()->back()->withSuccess('Форма обучения успешно добавлена!');
+        return redirect()->back()->withSuccess('Форма обучения  ' . $new_educationForm->educationForm . ' успешно добавлена!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\EducationForm  $educationForm
+     * @param \App\Models\EducationForm $educationForm
      * @return \Illuminate\Http\Response
      */
     public function show(EducationForm $educationForm)
@@ -58,7 +58,7 @@ class EducationFormController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\EducationForm  $educationForm
+     * @param \App\Models\EducationForm $educationForm
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(EducationForm $educationForm)
@@ -69,8 +69,8 @@ class EducationFormController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\EducationForm  $educationForm
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\EducationForm $educationForm
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, EducationForm $educationForm)
@@ -78,13 +78,13 @@ class EducationFormController extends Controller
         $educationForm->educationForm = $request->educationForm;
         $educationForm->save();
 
-        return redirect()->back()->withSuccess('Форма обучения успешно обновлена!');
+        return redirect()->back()->withSuccess('Форма обучения ' . $educationForm->educationForm . ' успешно обновлена!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\EducationForm  $educationForm
+     * @param \App\Models\EducationForm $educationForm
      * @return \Illuminate\Http\Response
      */
     public function destroy(EducationForm $educationForm)

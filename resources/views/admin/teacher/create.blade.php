@@ -45,6 +45,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="departmentSelect">Кафедра</label>
+                                    <br>
                                     <select name="department_id"
                                             class="form-select form-select-sm"
                                             aria-label=".form-select-sm example">

@@ -54,7 +54,7 @@
                         @foreach($reports as $report)
                             <tr>
                                 <td>
-                                    <a href="{{ route('report.show', $report->id) }}"> {{ $report->id }} </a>
+                                    <a href="{{ route('report.show', $report) }}"> {{ $report->id }} </a>
                                 </td>
                                 <td>
                                     {{ $report->year->year }}

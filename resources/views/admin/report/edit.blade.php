@@ -30,7 +30,7 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('report.update') }}" method="POST">
+                        <form action="{{ route('report.update', $report->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
