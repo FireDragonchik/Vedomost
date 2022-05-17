@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Attestation;
 use App\Models\Report;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class AttestationController extends Controller
@@ -22,12 +23,13 @@ class AttestationController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @param \App\Models\Report $report
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function create(Report $report)
+    public function create()
     {
-        return view('admin.attestation.create', ['report' => $report]);
+        $reports = Report::all();
+        $students = Student::all();
+        return view('admin.attestation.create', compact(['reports', 'students']));
     }
 
     /**
@@ -38,7 +40,14 @@ class AttestationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $new_attestation = new Attestation();
+        $new_attestation->report_id = $request->report_id;
+        $new_attestation->student_id = $request->student_id;
+        $new_attestation->date = $request->date;
+        $new_attestation->mark = $request->mark;
+        $new_attestation->save();
+
+        return redirect()->back()->withSuccess('Отметка успешно добавлена!');
     }
 
     /**

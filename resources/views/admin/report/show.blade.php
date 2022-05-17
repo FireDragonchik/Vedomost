@@ -31,11 +31,9 @@
             <tr>
                 <th>№</th>
                 <th>ФИО студента</th>
-                @if(!empty($report->group->students) && !empty($report->group->students[0]->attestation))
-                    @foreach($report->group->students[0]->attestation as $attestation)
-                        <th style="writing-mode: vertical-rl">{{$attestation->date}}</th>
-                    @endforeach
-                @endif
+                @foreach($dates as $date)
+                    <th style="writing-mode: vertical-rl">{{ $date->date }}</th>
+                @endforeach
                 <th>Отметка текущей успеваемости</th>
             </tr>
             </thead>
@@ -44,11 +42,17 @@
                     <td>{{$student->studentId}}</td>
                     <td>{{$student->fioStudent}}</td>
                     @if(!empty($student->attestation))
-                        @foreach($student->attestation as $attestation)
-                            <td>{{$attestation->mark}}</td>
-                        @endforeach
+                        @for($i=0;$i<sizeof($dates);$i++)
+                            @if(sizeof($student->attestation) > $i)
+                                @if(strpos(json_encode($dates), $student->attestation[$i]->date) !== false)
+                                    <td>{{ $student->attestation[$i]->mark }}</td>
+                                @endif
+                            @else
+                                <td>-</td>
+                            @endif
+                        @endfor
+                        <td>{{ $student->avgAttestation($minDate, $maxDate) }}</td>
                     @endif
-                    <td>{{ $student->avgAttestation($minDate, $maxDate) }}</td>
                 </tr>
             @endforeach
         </table>

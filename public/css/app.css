@@ -14,10 +14,10 @@ a {
 }
 
 select{
-    /*border: 1px solid #999;*/
-    /*font-size: 18px;*/
-    /*border-radius: 5px;*/
-    width: 20%
+    border: 1px solid #999;
+    font-size: 18px;
+    border-radius: 5px;
+    width: 30%
 }
 
 .wrapper {

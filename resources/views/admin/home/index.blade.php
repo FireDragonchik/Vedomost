@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Главная</h1>
+                    <h1 class="m-0">Начальная</h1>
                 </div><!-- /.c  ol -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->

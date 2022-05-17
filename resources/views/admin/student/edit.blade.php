@@ -36,7 +36,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="studentId">Номер по журналу</label>
-                                    <input type="text" name="studentId" class="form-control"
+                                    <input type="number" name="studentId" class="form-control"
                                            id="studentId"
                                            value="{{ $student->studentId }}"
                                            placeholder="Введите номер по журналу">

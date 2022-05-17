@@ -1,4 +1,4 @@
-@extends('layouts.admin_layout')
+@extends('layouts.user_layout')
 
 @section('title', 'Все группы')
 
@@ -50,14 +50,13 @@
                             <th style="width: 25%">
                                 Наименование специальности
                             </th>
-                            <th style="width:30%"></th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($groups as $group)
                             <tr>
                                 <td>
-                                    <a href="{{ route('group.show', $group) }}"> {{ $group->id }} </a>
+                                    <a href="{{ route('t_group.show', $group) }}"> {{ $group->id }} </a>
                                 </td>
                                 <td>
                                     {{ $group->groupCode }}
@@ -76,23 +75,6 @@
                                 </td>
                                 <td>
                                     {{ $group->specialty->fullNameOfSpecialty }}
-                                </td>
-                                <td class="project-actions text-right">
-                                    <a class="btn btn-info btn-sm" href="{{ route('group.edit', $group->id) }}">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                        Редактировать
-                                    </a>
-                                    <form action="{{ route('group.destroy', $group->id) }}" method="POST"
-                                          style="display: inline-block">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn delete-btn btn-danger btn-sm" href="">
-                                            <i class="fas fa-trash">
-                                            </i>
-                                            Удалить
-                                        </button>
-                                    </form>
                                 </td>
                             </tr>
                         @endforeach

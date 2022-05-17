@@ -24,9 +24,12 @@ Auth::routes();
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/personalAccount', [PersonalAccountController::class, 'index'])->name('personalAccount');
-Route::get('/personalAccountInfo', [PersonalAccountController::class, 'getUser'])->name('personalAccountInfo');
-Route::get('/report', [ReportController::class, 'index'])->name('report');;
+Route::middleware(['role:User'])->prefix('teacher_panel')->group(function () {
+    Route::get('/personalAccount', [PersonalAccountController::class, 'index'])->name('personalAccount');
+    Route::get('/', [\App\Http\Controllers\User\HomeController::class, 'index'])->name('homeTeacher');
+
+    Route::resource('t_group', \App\Http\Controllers\User\GroupController::class);
+});
 
 Route::middleware(['role:Admin'])->prefix('admin_panel')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin');

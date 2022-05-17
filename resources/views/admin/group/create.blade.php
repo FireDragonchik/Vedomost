@@ -42,10 +42,8 @@
                                 <div class="form-group">
                                     <label class="form-label" for="courseSelect">Курс</label>
                                     <br>
-                                    <select id="courseSelect" name="course_id"
-                                            class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example">
-                                        <option selected disabled>Выберите курс</option>
+                                    <select class="js-select2" name="course_id">
+                                        <option value=""></option>
                                         @foreach($courses as $course)
                                             <option class="course" value="{{ $course->id }}">
                                                 {{ $course->course }}
@@ -56,10 +54,8 @@
                                 <div class="form-group">
                                     <label class="form-label" for="educationFormSelect">Форма обучения</label>
                                     <br>
-                                    <select id="educationFormSelect" name="education_form_id"
-                                            class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example">
-                                        <option selected disabled>Выберите форму обучения</option>
+                                    <select class="js-select2" name="education_form_id">
+                                        <option value=""></option>
                                         @foreach($educationForms as $educationForm)
                                             <option class="educationForm" value="{{ $educationForm->id }}">
                                                 {{ $educationForm->educationForm }}
@@ -70,10 +66,8 @@
                                 <div class="form-group">
                                     <label class="form-label" for="graduateDegreeSelect">Ступень образования</label>
                                     <br>
-                                    <select id="graduateDegreeSelect" name="graduate_degree_id"
-                                            class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example">
-                                        <option selected disabled>Выберите ступень образования</option>
+                                    <select class="js-select2" name="graduate_degree_id">
+                                        <option value=""></option>
                                         @foreach($graduateDegrees as $graduateDegree)
                                             <option class="graduateDegree" value="{{ $graduateDegree->id }}">
                                                 {{ $graduateDegree->graduateDegreeShort }}
@@ -84,10 +78,8 @@
                                 <div class="form-group">
                                     <label class="form-label" for="graduateDegreeSelect">Специальность</label>
                                     <br>
-                                    <select id="specialtySelect" name="specialty_id"
-                                            class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example">
-                                        <option selected disabled>Выберите специальность</option>
+                                    <select class="js-select2" name="specialty_id">
+                                        <option value=""></option>
                                         @foreach($specialties as $specialty)
                                             <option class="specialty" value="{{ $specialty->id }}">
                                                 {{ $specialty->fullNameOfSpecialty }}

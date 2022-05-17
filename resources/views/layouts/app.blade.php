@@ -31,12 +31,15 @@
                 <div class="header-content-top">
                     <div class="container header-top-container">
                         <div class="authentication">
-                            @if(!empty(@auth()->user()) && @auth()->user()->hasRole('Admin'))
-                                <a class="link" href="{{ route('homeAdmin') }}">Админ-панель &nbsp/&nbsp</a>
-                            @endif
                             @auth
-                                <a href="{{ route('personalAccount') }}">Личный кабинет &nbsp/&nbsp</a>
-                                <a href="{{ route('report') }}">Ведомость &nbsp/&nbsp</a>
+                                @if(@auth()->user()->hasRole('Admin'))
+                                    <a class="link" href="{{ route('homeAdmin') }}">Админ-панель &nbsp/&nbsp</a>
+                                @elseif(@auth()->user()->hasRole('User'))
+                                    <a href="{{ route('homeTeacher') }}">Панель преподавателя &nbsp/&nbsp</a>
+                                @endif
+                                @if(@auth()->user()->hasRole('Admin') || @auth()->user()->hasRole('User'))
+                                    <a href="{{ route('personalAccount') }}">Личный кабинет &nbsp/&nbsp</a>
+                                @endif
                                 <a href="{{ route('logout') }}">Выйти</a>
                             @else
                                 <a href="{{ route('login') }}">Вход &nbsp/&nbsp </a>

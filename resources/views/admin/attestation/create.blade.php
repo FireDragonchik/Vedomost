@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Добавить отметку в ведомость № {{ $report->id }}</h1>
+                    <h1 class="m-0">Добавить отметку</h1>
                 </div><!-- /.c  ol -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -34,9 +34,40 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="course">Курс</label>
-                                    <input type="text" name="course" class="form-control" id="course"
-                                           placeholder="Введите курс" required>
+                                    <label class="form-label">Ведомость</label>
+                                    <br>
+                                    <select class="js-select2" name="report_id">
+                                        <option value=""></option>
+                                        @foreach($reports as $report)
+                                            <option class="course" value="{{ $report->id }}">
+                                                {{ $report->year->year }} {{ $report->semester->semester }} семестр
+                                                группа {{ $report->group->groupCode }}
+                                                дисциплина {{ $report->discipline->fullNameOfDiscipline }}
+                                                преподаватель {{ $report->discipline->teacher->fioTeacher }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="courseSelect">Студент</label>
+                                    <br>
+                                    <select class="js-select2" name="student_id">
+                                        <option value=""></option>
+                                        @foreach($students as $student)
+                                            <option value="{{ $student->id }}">
+                                                {{ $student->group->groupCode }} {{ $student->fioStudent }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="course">Дата</label>
+                                    <input type="date" name="date" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="course">Отметка</label>
+                                    <input type="number" name="mark" class="form-control"
+                                           placeholder="Введите отметку" required>
                                 </div>
                             </div>
                             <!-- /.card-body -->

@@ -9,6 +9,7 @@ use App\Models\GraduateDegree;
 use App\Models\Group;
 use App\Models\Specialty;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GroupController extends Controller
 {
@@ -60,11 +61,14 @@ class GroupController extends Controller
      * Display the specified resource.
      *
      * @param \App\Models\Group $group
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Group $group)
     {
-        //
+        $students = DB::table('students')->select('*')->orderBy('studentId')
+            ->where('group_id', '=', $group->id)
+            ->get()->toArray();
+        return view('admin.group.show', compact(['group', 'students']));
     }
 
     /**

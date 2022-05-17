@@ -69,7 +69,11 @@ class ReportController extends Controller
         $minDate = DB::table('attestations')->select(DB::raw('min(date) as minDate'))
             ->where('report_id', '=', $report->id)
             ->first();
-        return view('admin.report.show', ['report' => $report, 'maxDate' => $maxDate->maxDate, 'minDate' => $minDate->minDate]);
+        $dates = DB::table('attestations')->select(DB::raw('distinct date'))
+            ->where('report_id', '=', $report->id)
+            ->get()->toArray();
+        return view('admin.report.show', ['report' => $report, 'maxDate' => $maxDate->maxDate,
+            'minDate' => $minDate->minDate, 'dates'=>$dates]);
     }
 
     /**

@@ -83,8 +83,6 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
                     <li class="nav-item">
                         <a href="{{ route('homeAdmin') }}" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -394,6 +392,22 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-chart-line"></i>
+                            <p>
+                                Отметки
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('attestation.create') }}" class="nav-link">
+                                    <p>Добавить отметку</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-users"></i>
                             <p>
                                 Пользователи
@@ -409,7 +423,12 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('home') }}">Перейти к приложению</a>
+                        <a href="{{ route('home') }}" class="nav-link">
+                            <i class="nav-icon fas fa-arrow-left"></i>
+                            <p>
+                                Перейти на начальную страницу
+                            </p>
+                        </a>
                     </li>
                 </ul>
             </nav>
