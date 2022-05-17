@@ -9,7 +9,7 @@
             <div class="row mb-2">
                 <div>
                     <h1 class="text-center">Ведомость текущей успеваемости в семестре № {{ $report->id }}</h1>
-                    <h1>В {{ $report->semester->semester }} семестре {{ $report->year->year }} учебного года
+                    <h1>{{ $report->semester->semester }} семестр {{ $report->year->year }} учебного года
                         по дисциплине - {{ $report->discipline->fullNameOfDiscipline }}
                     </h1>
                     <h1>Лектор (Ф.И.О)/Преподаватель (Ф.И.О): {{ $report->discipline->teacher->fioTeacher }}</h1>
@@ -49,15 +49,9 @@
                         @endforeach
                     @endif
                     <td>{{ $student->avgAttestation($minDate, $maxDate) }}</td>
-{{--                    <td>{{ $report }}</td>--}}
-                    <td>{{ $reportFromDB }}</td>
                 </tr>
             @endforeach
         </table>
-
-        <div class="card-footer">
-            <a href="{{ route('attestation.create', $reportFromDB) }}" class="btn btn-primary">Добавить отметку</a>
-        </div>
     </div>
 
 @endsection

@@ -39,28 +39,24 @@
                                            id="studentId"
                                            placeholder="Введите номер по журналу">
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label" for="courseSelect">Группа</label>
-                                <br>
-                                <select id="groupSelect" name="group_id"
-                                        class="form-select form-select-sm"
-                                        aria-label=".form-select-sm example">
-                                    <option selected disabled>Выберите группу</option>
-                                    @foreach($groups as $group)
-                                        <option class="group" value="{{ $group->id }}">
-                                            {{ $group->groupCode }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label" for="fioStudent">ФИО студента</label>
-                                <input type="text" name="fioStudent" class="form-control"
-                                       id="fioStudent"
-                                       placeholder="Введите ФИО студента">
-                            </div>
-                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label" for="courseSelect">Группа</label>
+                                    <br>
+                                    <select class="js-select2" id="groupSelect" name="group_id">
+                                        <option value=""></option>
+                                        @foreach($groups as $group)
+                                            <option class="group" value="{{ $group->id }}">
+                                                {{ $group->groupCode }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="fioStudent">ФИО студента</label>
+                                    <input type="text" name="fioStudent" class="form-control"
+                                           id="fioStudent"
+                                           placeholder="Введите ФИО студента">
+                                </div>
                                 <div class="form-group">
                                     <label for="subGroup">Индекс подгруппы</label>
                                     <input type="text" name="subGroup" class="form-control"

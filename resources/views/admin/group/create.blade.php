@@ -39,62 +39,62 @@
                                            id="groupCode"
                                            placeholder="Введите шифр группы">
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label" for="courseSelect">Курс</label>
-                                <br>
-                                <select id="courseSelect" name="course_id"
-                                        class="form-select form-select-sm"
-                                        aria-label=".form-select-sm example">
-                                    <option selected disabled>Выберите курс</option>
-                                    @foreach($courses as $course)
-                                        <option class="course" value="{{ $course->id }}">
-                                            {{ $course->course }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label" for="educationFormSelect">Форма обучения</label>
-                                <br>
-                                <select id="educationFormSelect" name="education_form_id"
-                                        class="form-select form-select-sm"
-                                        aria-label=".form-select-sm example">
-                                    <option selected disabled>Выберите форму обучения</option>
-                                    @foreach($educationForms as $educationForm)
-                                        <option class="educationForm" value="{{ $educationForm->id }}">
-                                            {{ $educationForm->educationForm }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label" for="graduateDegreeSelect">Ступень образования</label>
-                                <br>
-                                <select id="graduateDegreeSelect" name="graduate_degree_id"
-                                        class="form-select form-select-sm"
-                                        aria-label=".form-select-sm example">
-                                    <option selected disabled>Выберите ступень образования</option>
-                                    @foreach($graduateDegrees as $graduateDegree)
-                                        <option class="graduateDegree" value="{{ $graduateDegree->id }}">
-                                            {{ $graduateDegree->graduateDegreeShort }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label" for="graduateDegreeSelect">Специальность</label>
-                                <br>
-                                <select id="specialtySelect" name="specialty_id"
-                                        class="form-select form-select-sm"
-                                        aria-label=".form-select-sm example">
-                                    <option selected disabled>Выберите специальность</option>
-                                    @foreach($specialties as $specialty)
-                                        <option class="specialty" value="{{ $specialty->id }}">
-                                            {{ $specialty->shortNameOfSpecialty }}
-                                        </option>
-                                    @endforeach
-                                </select>
+                                <div class="form-group">
+                                    <label class="form-label" for="courseSelect">Курс</label>
+                                    <br>
+                                    <select id="courseSelect" name="course_id"
+                                            class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+                                        <option selected disabled>Выберите курс</option>
+                                        @foreach($courses as $course)
+                                            <option class="course" value="{{ $course->id }}">
+                                                {{ $course->course }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="educationFormSelect">Форма обучения</label>
+                                    <br>
+                                    <select id="educationFormSelect" name="education_form_id"
+                                            class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+                                        <option selected disabled>Выберите форму обучения</option>
+                                        @foreach($educationForms as $educationForm)
+                                            <option class="educationForm" value="{{ $educationForm->id }}">
+                                                {{ $educationForm->educationForm }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="graduateDegreeSelect">Ступень образования</label>
+                                    <br>
+                                    <select id="graduateDegreeSelect" name="graduate_degree_id"
+                                            class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+                                        <option selected disabled>Выберите ступень образования</option>
+                                        @foreach($graduateDegrees as $graduateDegree)
+                                            <option class="graduateDegree" value="{{ $graduateDegree->id }}">
+                                                {{ $graduateDegree->graduateDegreeShort }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="graduateDegreeSelect">Специальность</label>
+                                    <br>
+                                    <select id="specialtySelect" name="specialty_id"
+                                            class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+                                        <option selected disabled>Выберите специальность</option>
+                                        @foreach($specialties as $specialty)
+                                            <option class="specialty" value="{{ $specialty->id }}">
+                                                {{ $specialty->fullNameOfSpecialty }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">

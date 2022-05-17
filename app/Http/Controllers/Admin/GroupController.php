@@ -50,11 +50,10 @@ class GroupController extends Controller
         $new_group->course_id = $request->course_id;
         $new_group->education_form_id = $request->education_form_id;
         $new_group->graduate_degree_id = $request->graduate_degree_id;
-        $new_group->numberOfStudents = $request->numberOfStudents;
         $new_group->specialty_id = $request->specialty_id;
         $new_group->save();
 
-        return redirect()->back()->withSuccess('Группа успешна добавлена!');
+        return redirect()->back()->withSuccess('Группа ' . $new_group->groupCode . ' успешна добавлена!');
     }
 
     /**
@@ -96,11 +95,10 @@ class GroupController extends Controller
         $group->course_id = $request->course_id;
         $group->educationForm_id = $request->educationForm_id;
         $group->graduateDegree_id = $request->graduateDegree_id;
-        $group->numberOfStudents = $request->numberOfStudents;
         $group->specialty_id = $request->specialty_id;
         $group->save();
 
-        return redirect()->back()->withSuccess('Группа успешна обновлена!');
+        return redirect()->back()->withSuccess('Группа ' . $group->groupCode . ' успешна обновлена!');
     }
 
     /**
@@ -112,6 +110,6 @@ class GroupController extends Controller
     public function destroy(Group $group)
     {
         $group->delete();
-        return redirect()->back()->withSuccess('Группа была успешна удалена!');
+        return redirect()->back()->withSuccess('Группа ' . $group->groupCode . ' была успешна удалена!');
     }
 }

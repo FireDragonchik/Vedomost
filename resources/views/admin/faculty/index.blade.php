@@ -84,6 +84,7 @@
                 <!-- /.card-body -->
             </div>
         </div><!-- /.container-fluid -->
+        {{ $faculties->withQueryString()->links() }}
     </section>
     <!-- /.content -->
 @endsection

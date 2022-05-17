@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 use phpDocumentor\Reflection\Types\String_;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 use function Symfony\Component\Finder\name;
 
@@ -47,4 +48,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role(){
+        return $this->belongsTo(Role::class, "model_id", "id")->with('model_has_roles');
+    }
 }

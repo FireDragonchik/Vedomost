@@ -16,7 +16,7 @@ class SpecialtyController extends Controller
      */
     public function index()
     {
-        $specialties = Specialty::orderBy('id')->get();
+        $specialties = Specialty::paginate(10);
         return view('admin.specialty.index', compact(['specialties']));
     }
 
@@ -28,13 +28,13 @@ class SpecialtyController extends Controller
     public function create()
     {
         $faculties = Faculty::all();
-        return view('admin.specialty.create', ['faculties'=>$faculties]);
+        return view('admin.specialty.create', ['faculties' => $faculties]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -45,13 +45,13 @@ class SpecialtyController extends Controller
         $new_specialty->faculty_id = $request->faculty_id;
         $new_specialty->save();
 
-        return redirect()->back()->withSuccess('Специальность успешна добавлена!');
+        return redirect()->back()->withSuccess('Специальность ' . $new_specialty->fullNameOfSpecialty . ' успешна добавлена!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Specialty  $specialty
+     * @param \App\Models\Specialty $specialty
      * @return \Illuminate\Http\Response
      */
     public function show(Specialty $specialty)
@@ -62,7 +62,7 @@ class SpecialtyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Specialty  $specialty
+     * @param \App\Models\Specialty $specialty
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Specialty $specialty)
@@ -74,8 +74,8 @@ class SpecialtyController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Specialty  $specialty
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Specialty $specialty
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Specialty $specialty)
@@ -85,18 +85,18 @@ class SpecialtyController extends Controller
         $specialty->faculty_id = $request->faculty_id;
         $specialty->save();
 
-        return redirect()->back()->withSuccess('Специальность успешна обновлена!');
+        return redirect()->back()->withSuccess('Специальность ' . $specialty->fullNameOfSpecialty . ' успешна обновлена!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Specialty  $specialty
+     * @param \App\Models\Specialty $specialty
      * @return \Illuminate\Http\Response
      */
     public function destroy(Specialty $specialty)
     {
         $specialty->delete();
-        return redirect()->back()->withSuccess('Специальность была успешно удалена!');
+        return redirect()->back()->withSuccess('Специальность ' . $specialty->fullNameOfSpecialty . ' была успешно удалена!');
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Добавить год обучения')
+@section('title', 'Добавить учебный год')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Добавить год обучения</h1>
+                    <h1 class="m-0">Добавить учебный год</h1>
                 </div><!-- /.c  ol -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -34,9 +34,9 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="year">Год обучения</label>
+                                    <label for="year">Учебный год</label>
                                     <input type="text" name="year" class="form-control" id="year"
-                                           placeholder="Введите год обучения" required>
+                                           placeholder="Введите учебный год" required>
                                 </div>
                             </div>
                             <!-- /.card-body -->

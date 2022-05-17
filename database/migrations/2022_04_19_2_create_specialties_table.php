@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('specialties', function (Blueprint $table) {
             $table->id();
             $table->string('shortNameOfSpecialty');
-            $table->string('fullNameOfSpecialty');
+            $table->string('fullNameOfSpecialty')->unique();
             $table->foreignId('faculty_id')->constrained();
         });
     }

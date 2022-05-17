@@ -41,8 +41,6 @@
                                            value="{{ $specialty->shortNameOfSpecialty }}"
                                            placeholder="Введите краткое наименование специальности" required>
                                 </div>
-                            </div>
-                            <div class="card-body">
                                 <div class="form-group">
                                     <label for="fullNameOfSpecialty">Полное наименование специальности</label>
                                     <input type="text" name="fullNameOfSpecialty" class="form-control"
@@ -50,17 +48,16 @@
                                            value="{{ $specialty->fullNameOfSpecialty }}"
                                            placeholder="Введите полное наименование специальности" required>
                                 </div>
-                            </div>
-                            <div class="card-body">
                                 <label class="form-label" for="facultySelect">Факультет</label>
+                                <br>
                                 <select id="facultySelect" name="faculty_id"
                                         class="form-select form-select-sm"
                                         aria-label=".form-select-sm example"
-                                        value="{{ $specialty->faculty_id }}"
                                         required>
                                     @foreach($faculties as $faculty)
-                                        <option class="department" value="{{ $faculty->id }}">
-                                            {{ $faculty->shortNameOfFaculty }}
+                                        <option class="department" value="{{ $faculty->id }}"
+                                                @if($specialty->faculty_id == $faculty->id) selected @endif>
+                                            {{ $faculty->fullNameOfFaculty }}
                                         </option>
                                     @endforeach
                                 </select>

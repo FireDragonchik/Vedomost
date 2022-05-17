@@ -32,7 +32,10 @@
           crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}" type="image/x-icon">
+
+    <link rel="stylesheet" href="/admin/dist/css/select2.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -276,52 +279,6 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-calendar"></i>
-                            <p>
-                                Год обучения
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('year.index') }}" class="nav-link">
-                                    <p>Все годы обучения</p>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('year.create') }}" class="nav-link">
-                                    <p>Добавить год обучения</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-layer-group"></i>
-                            <p>
-                                Семестры
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('semester.index') }}" class="nav-link">
-                                    <p>Все семестры</p>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('semester.create') }}" class="nav-link">
-                                    <p>Добавить семестр</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-users-cog"></i>
                             <p>
                                 Группы
@@ -368,6 +325,52 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-calendar"></i>
+                            <p>
+                                Учебный год
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('year.index') }}" class="nav-link">
+                                    <p>Все годы обучения</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('year.create') }}" class="nav-link">
+                                    <p>Добавить учебный год</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-layer-group"></i>
+                            <p>
+                                Семестры
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('semester.index') }}" class="nav-link">
+                                    <p>Все семестры</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('semester.create') }}" class="nav-link">
+                                    <p>Добавить семестр</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon far fa-newspaper"></i>
                             <p>
                                 Ведомости
@@ -385,6 +388,22 @@
                             <li class="nav-item">
                                 <a href="{{ route('report.create') }}" class="nav-link">
                                     <p>Добавить ведомость</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Пользователи
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('user.index') }}" class="nav-link">
+                                    <p>Все пользователи</p>
                                 </a>
                             </li>
                         </ul>
@@ -450,5 +469,16 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/admin/dist/js/pages/dashboard.js"></script>
 <script src="/admin/admin.js"></script>
+<script src="/admin/dist/js/select2.min.js"></script>
+<script src="/admin/dist/js/ru.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('.js-select2').select2({
+            maximumSelectionLength: 2,
+            language: "ru"
+        });
+    });
+</script>
 </body>
 </html>

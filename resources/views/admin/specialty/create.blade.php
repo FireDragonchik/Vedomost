@@ -39,17 +39,14 @@
                                            id="shortNameOfSpecialty"
                                            placeholder="Введите краткое наименование специальности" required>
                                 </div>
-                            </div>
-                            <div class="card-body">
                                 <div class="form-group">
                                     <label for="fullNameOfSpecialty">Полное наименование специальности</label>
                                     <input type="text" name="fullNameOfSpecialty" class="form-control"
                                            id="fullNameOfSpecialty"
                                            placeholder="Введите полное наименование специальности" required>
                                 </div>
-                            </div>
-                            <div class="card-body">
                                 <label class="form-label" for="facultySelect">Факультет</label>
+                                <br>
                                 <select id="facultySelect" name="faculty_id"
                                         class="form-select form-select-sm"
                                         aria-label=".form-select-sm example"
@@ -57,7 +54,7 @@
                                     <option selected disabled>Выберите факультет</option>
                                     @foreach($faculties as $faculty)
                                         <option class="department" value="{{ $faculty->id }}">
-                                            {{ $faculty->shortNameOfFaculty }}
+                                            {{ $faculty->fullNameOfFaculty }}
                                         </option>
                                     @endforeach
                                 </select>

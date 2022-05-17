@@ -41,66 +41,63 @@
                                            id="groupCode"
                                            placeholder="Введите шифр группы">
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label" for="courseSelect">Курс</label>
-                                <br>
-                                <select id="courseSelect" name="course_id"
-                                        class="form-select form-select-sm"
-                                        aria-label=".form-select-sm example"
-                                        value="{{ $group->course->course }}">
-                                    <option disabled>Выберите курс</option>
-                                    @foreach($courses as $course)
-                                        <option class="course" value="{{ $course->id }}">
-                                            {{ $course->course }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label" for="educationFormSelect">Форма обучения</label>
-                                <br>
-                                <select id="educationFormSelect" name="education_form_id"
-                                        class="form-select form-select-sm"
-                                        aria-label=".form-select-sm example"
-                                        value="{{ $group->educationForm->educationForm }}">
-                                    <option selected disabled>Выберите форму обучения</option>
-                                    @foreach($educationForms as $educationForm)
-                                        <option class="educationForm" value="{{ $educationForm->id }}">
-                                            {{ $educationForm->educationForm }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label" for="graduateDegreeSelect">Ступень образования</label>
-                                <br>
-                                <select id="graduateDegreeSelect" name="graduate_degree_id"
-                                        class="form-select form-select-sm"
-                                        aria-label=".form-select-sm example"
-                                        value="{{ $group->graduateDegree->graduateDegreeShort }}">
-                                    <option disabled>Выберите ступень образования</option>
-                                    @foreach($graduateDegrees as $graduateDegree)
-                                        <option class="graduateDegree" value="{{ $graduateDegree->id }}">
-                                            {{ $graduateDegree->graduateDegreeShort }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label" for="graduateDegreeSelect">Наименование специальности</label>
-                                <br>
-                                <select id="specialtySelect" name="specialty_id"
-                                        class="form-select form-select-sm"
-                                        aria-label=".form-select-sm example"
-                                        value="{{ $group->specialty->shortNameOfSpecialty }}">
-                                    <option disabled>Выберите специальность</option>
-                                    @foreach($specialties as $specialty)
-                                        <option class="specialty" value="{{ $specialty->id }}">
-                                            {{ $specialty->shortNameOfSpecialty }}
-                                        </option>
-                                    @endforeach
-                                </select>
+                                <div class="form-group">
+                                    <label class="form-label" for="courseSelect">Курс</label>
+                                    <br>
+                                    <select id="courseSelect" name="course_id"
+                                            class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+                                        @foreach($courses as $course)
+                                            <option class="course" value="{{ $course->id }}"
+                                                    @if($group->course_id == $course->id) selected @endif>
+                                                {{ $course->course }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="educationFormSelect">Форма обучения</label>
+                                    <br>
+                                    <select id="educationFormSelect" name="education_form_id"
+                                            class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+                                        @foreach($educationForms as $educationForm)
+                                            <option class="educationForm" value="{{ $educationForm->id }}"
+                                                    @if($group->educationForm_id == $educationForm->id) selected @endif>
+                                                {{ $educationForm->educationForm }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="graduateDegreeSelect">Ступень образования</label>
+                                    <br>
+                                    <select id="graduateDegreeSelect" name="graduate_degree_id"
+                                            class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+                                        @foreach($graduateDegrees as $graduateDegree)
+                                            <option class="graduateDegree" value="{{ $graduateDegree->id }}"
+                                                    @if($group->graduateDegree_id == $graduateDegree->id) selected @endif>
+                                                {{ $graduateDegree->graduateDegreeShort }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="graduateDegreeSelect">Наименование
+                                        специальности</label>
+                                    <br>
+                                    <select id="specialtySelect" name="specialty_id"
+                                            class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+                                        @foreach($specialties as $specialty)
+                                            <option class="specialty" value="{{ $specialty->id }}"
+                                                    @if($group->specialty_id == $specialty->id) selected @endif>
+                                                {{ $specialty->fullNameOfSpecialty }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">

@@ -40,7 +40,7 @@ class SemesterController extends Controller
         $new_semester = new Semester();
         $new_semester->semester = $request->semester;
         $new_semester->save();
-        return redirect()->back()->withSuccess('Учебный семестр успешно добавлен!');
+        return redirect()->back()->withSuccess('Учебный ' . $new_semester->semester . ' семестр успешно добавлен!');
     }
 
     /**
@@ -76,7 +76,7 @@ class SemesterController extends Controller
     {
         $semester->semester = $request->semester;
         $semester->save();
-        return redirect()->back()->withSuccess('Учебный семестр успешно обновлен!');
+        return redirect()->back()->withSuccess('Учебный ' . $semester->semester . ' семестр успешно обновлен!');
     }
 
     /**
@@ -88,6 +88,6 @@ class SemesterController extends Controller
     public function destroy(Semester $semester)
     {
         $semester->delete();
-        return redirect()->back()->withSuccess('Учебный семестр был успешно удален!');
+        return redirect()->back()->withSuccess('Учебный ' . $semester->semester . ' семестр был успешно удален!');
     }
 }

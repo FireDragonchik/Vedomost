@@ -41,7 +41,7 @@ class CourseController extends Controller
         $new_course->course = $request->course;
         $new_course->save();
 
-        return redirect()->back()->withSuccess('Курс ' . $new_course->course . ' успешно добавлен!');
+        return redirect()->back()->withSuccess($new_course->course . ' успешно добавлен!');
     }
 
     /**
@@ -78,7 +78,7 @@ class CourseController extends Controller
         $course->course = $request->course;
         $course->save();
 
-        return redirect()->back()->withSuccess('Курс ' . $course->course . ' был успешно обновлен!');
+        return redirect()->back()->withSuccess($course->course . ' был успешно обновлен!');
     }
 
     /**
@@ -90,6 +90,6 @@ class CourseController extends Controller
     public function destroy(Course $course)
     {
         $course->delete();
-        return redirect()->back()->withSuccess('Курс был успешно удален!');
+        return redirect()->back()->withSuccess($course->course . ' был успешно удален!');
     }
 }

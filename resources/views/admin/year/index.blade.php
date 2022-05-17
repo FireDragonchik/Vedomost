@@ -33,7 +33,7 @@
                                 ID
                             </th>
                             <th style="width: 30%">
-                                Год обучения
+                                Учебный год
                             </th>
                             <th style="width:30%"></th>
                         </tr>

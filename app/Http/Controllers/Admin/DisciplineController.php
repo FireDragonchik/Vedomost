@@ -97,6 +97,6 @@ class DisciplineController extends Controller
     public function destroy(Discipline $discipline)
     {
         $discipline->delete();
-        return redirect()->back()->withSuccess('Дисциплина была успешно удалена!');
+        return redirect()->back()->withSuccess('Дисциплина ' . $discipline->fullNameOfDiscipline . ' была успешно удалена!');
     }
 }

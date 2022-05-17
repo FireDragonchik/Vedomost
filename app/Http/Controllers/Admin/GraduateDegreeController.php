@@ -42,7 +42,7 @@ class GraduateDegreeController extends Controller
         $new_graduateDegree->graduateDegreeFull = $request->graduateDegreeFull;
         $new_graduateDegree->save();
 
-        return redirect()->back()->withSuccess('Ступень образования успешно добавлена!');
+        return redirect()->back()->withSuccess('Ступень образования '. $new_graduateDegree->graduateDegreeFull .' успешно добавлена!');
     }
 
     /**
@@ -80,7 +80,7 @@ class GraduateDegreeController extends Controller
         $graduateDegree->graduateDegreeFull = $request->graduateDegreeFull;
         $graduateDegree->save();
 
-        return redirect()->back()->withSuccess('Ступень образования успешно обновлена!');
+        return redirect()->back()->withSuccess('Ступень образования '. $graduateDegree->graduateDegreeFull .' успешно обновлена!');
     }
 
     /**
@@ -92,6 +92,6 @@ class GraduateDegreeController extends Controller
     public function destroy(GraduateDegree $graduateDegree)
     {
         $graduateDegree->delete();
-        return redirect()->back()->withSuccess('Ступень образования была успешно удалена!');
+        return redirect()->back()->withSuccess('Ступень образования '. $graduateDegree->graduateDegreeFull .' была успешно удалена!');
     }
 }

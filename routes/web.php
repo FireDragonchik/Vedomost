@@ -45,4 +45,5 @@ Route::middleware(['role:Admin'])->prefix('admin_panel')->group(function () {
     Route::resource('semester', \App\Http\Controllers\Admin\SemesterController::class);
     Route::resource('report', \App\Http\Controllers\Admin\ReportController::class);
     Route::resource('attestation', \App\Http\Controllers\Admin\AttestationController::class);
+    Route::resource('user', \App\Http\Controllers\Admin\UserController::class);
 });

@@ -33,60 +33,54 @@
                         <form action="{{ route('report.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
-                                <label class="form-label">Год обучения</label>
-                                <br>
-                                <select name="year_id"
-                                        class="form-select form-select-sm"
-                                        aria-label=".form-select-sm example">
-                                    <option selected disabled>Выберите год обучения</option>
-                                    @foreach($years as $year)
-                                        <option class="course" value="{{ $year->id }}">
-                                            {{ $year->year }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label">Семестр</label>
-                                <br>
-                                <select name="semester_id"
-                                        class="form-select form-select-sm"
-                                        aria-label=".form-select-sm example">
-                                    <option selected disabled>Выберите семестр</option>
-                                    @foreach($semesters as $semester)
-                                        <option class="course" value="{{ $semester->id }}">
-                                            {{ $semester->semester }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label">Группа</label>
-                                <br>
-                                <select name="group_id"
-                                        class="form-select form-select-sm"
-                                        aria-label=".form-select-sm example">
-                                    <option selected disabled>Выберите группу</option>
-                                    @foreach($groups as $group)
-                                        <option class="course" value="{{ $group->id }}">
-                                            {{ $group->groupCode }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label">Дисциплина</label>
-                                <br>
-                                <select name="discipline_id"
-                                        class="form-select form-select-sm"
-                                        aria-label=".form-select-sm example">
-                                    <option selected disabled>Выберите дисциплину</option>
-                                    @foreach($disciplines as $discipline)
-                                        <option class="course" value="{{ $discipline->id }}">
-                                            {{ $discipline->shortNameOfDiscipline }}
-                                        </option>
-                                    @endforeach
-                                </select>
+                                <div class="form-group">
+                                    <label class="form-label">Учебный год</label>
+                                    <br>
+                                    <select class="js-select2" name="year_id">
+                                        <option value=""></option>
+                                        @foreach($years as $year)
+                                            <option class="course" value="{{ $year->id }}">
+                                                {{ $year->year }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Семестр</label>
+                                    <br>
+                                    <select class="js-select2" name="semester_id">
+                                        <option value=""></option>
+                                        @foreach($semesters as $semester)
+                                            <option class="course" value="{{ $semester->id }}">
+                                                {{ $semester->semester }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Группа</label>
+                                    <br>
+                                    <select class="js-select2" name="group_id">
+                                        <option value=""></option>
+                                        @foreach($groups as $group)
+                                            <option class="course" value="{{ $group->id }}">
+                                                {{ $group->groupCode }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Дисциплина</label>
+                                    <br>
+                                    <select class="js-select2" name="discipline_id">
+                                        <option value=""></option>
+                                        @foreach($disciplines as $discipline)
+                                            <option class="course" value="{{ $discipline->id }}">
+                                                {{ $discipline->fullNameOfDiscipline }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">

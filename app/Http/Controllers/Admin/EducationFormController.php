@@ -90,6 +90,6 @@ class EducationFormController extends Controller
     public function destroy(EducationForm $educationForm)
     {
         $educationForm->delete();
-        return redirect()->back()->withSuccess('Форма обучения была успешно удалена!');
+        return redirect()->back()->withSuccess('Форма обучения ' . $educationForm->educationForm . ' была успешно удалена!');
     }
 }

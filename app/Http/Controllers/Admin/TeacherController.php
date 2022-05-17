@@ -97,6 +97,6 @@ class TeacherController extends Controller
     public function destroy(Teacher $teacher)
     {
         $teacher->delete();
-        return redirect()->back()->withSuccess('Преподаватель был успешно удален!');
+        return redirect()->back()->withSuccess('Преподаватель ' . $teacher->fioTeacher . ' был успешно удален!');
     }
 }

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('graduate_degrees', function (Blueprint $table) {
             $table->id();
-            $table->string('graduateDegreeShort');
-            $table->string('graduateDegreeFull');
+            $table->string('graduateDegreeShort')->unique();
+            $table->string('graduateDegreeFull')->unique();
         });
     }
 

@@ -49,13 +49,13 @@
                                 <div class="form-group">
                                     <label class="form-label" for="departmentSelect">Кафедра</label>
                                     <br>
-                                    <select id="departmentSelect" value="{{ $teacher->department }}"
+                                    <select id="departmentSelect"
                                             name="department_id"
                                             class="form-select form-select-sm"
                                             aria-label=".form-select-sm example">
-                                        <option disabled>Выберите кафедру</option>
                                         @foreach($departments as $department)
-                                            <option class="department" value="{{ $department->id }}">
+                                            <option class="department" value="{{ $department->id }}"
+                                                    @if($teacher->department_id == $department->id) selected @endif>
                                                 {{ $department->department }}
                                             </option>
                                         @endforeach

@@ -40,7 +40,7 @@ class YearController extends Controller
         $new_year = new Year();
         $new_year->year = $request->year;
         $new_year->save();
-        return redirect()->back()->withSuccess('Год обучения успешно добавлен!');
+        return redirect()->back()->withSuccess($new_year->year . ' учебный год успешно добавлен!');
     }
 
     /**
@@ -76,7 +76,7 @@ class YearController extends Controller
     {
         $year->year = $request->year;
         $year->save();
-        return redirect()->back()->withSuccess('Год обучения успешно обновлен!');
+        return redirect()->back()->withSuccess($year->year . ' учебный год успешно обновлен!');
     }
 
     /**
@@ -88,6 +88,6 @@ class YearController extends Controller
     public function destroy(Year $year)
     {
         $year->delete();
-        return redirect()->back()->withSuccess('Год обучения был успешно удален!');
+        return redirect()->back()->withSuccess($year->year . ' учебный год был успешно удален!');
     }
 }

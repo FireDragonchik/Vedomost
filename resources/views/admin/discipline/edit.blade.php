@@ -52,10 +52,10 @@
                                 <br>
                                 <select id="teacherFormSelect" name="teacher_id"
                                         class="form-select form-select-sm"
-                                        aria-label=".form-select-sm example"
-                                        value="{{ $discipline->teacher_id}}">
+                                        aria-label=".form-select-sm example">
                                     @foreach($teachers as $teacher)
-                                        <option class="teacher" value="{{ $teacher->id }}">
+                                        <option class="teacher" value="{{ $teacher->id }}"
+                                                @if($discipline->teacher_id == $teacher->id) selected @endif>
                                             {{ $teacher->fioTeacher }}
                                         </option>
                                     @endforeach

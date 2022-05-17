@@ -84,6 +84,7 @@
                 <!-- /.card-body -->
             </div>
         </div><!-- /.container-fluid -->
+        {{ $specialties->withQueryString()->links() }}
     </section>
     <!-- /.content -->
 @endsection

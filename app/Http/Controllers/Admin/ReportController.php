@@ -52,7 +52,7 @@ class ReportController extends Controller
         $new_report->group_id = $request->group_id;
         $new_report->discipline_id = $request->discipline_id;
         $new_report->save();
-        return redirect()->back()->withSuccess('Ведомость успешно добавлена!');
+        return redirect()->back()->withSuccess('Ведомость № ' . $new_report->id . ' успешно добавлена!');
     }
 
     /**
@@ -69,10 +69,7 @@ class ReportController extends Controller
         $minDate = DB::table('attestations')->select(DB::raw('min(date) as minDate'))
             ->where('report_id', '=', $report->id)
             ->first();
-        $reportFromDB = DB::table('reports')->select('*')
-            ->where('id', '=', $report->id)
-            ->get();
-        return view('admin.report.show', ['report' => $report, 'maxDate' => $maxDate->maxDate, 'minDate' => $minDate->minDate, 'reportFromDB' => $reportFromDB]);
+        return view('admin.report.show', ['report' => $report, 'maxDate' => $maxDate->maxDate, 'minDate' => $minDate->minDate]);
     }
 
     /**
@@ -104,7 +101,7 @@ class ReportController extends Controller
         $report->group_id = $request->group_id;
         $report->discipline_id = $request->discipline_id;
         $report->save();
-        return redirect()->back()->withSuccess('Ведомость успешно обновлена!');
+        return redirect()->back()->withSuccess('Ведомость № ' . $report->id . ' успешно обновлена!');
     }
 
     /**
@@ -116,6 +113,6 @@ class ReportController extends Controller
     public function destroy(Report $report)
     {
         $report->delete();
-        return redirect()->back()->withSuccess('Ведомость была успешно удалена!');
+        return redirect()->back()->withSuccess('Ведомость № ' . $report->id . 'была успешно удалена!');
     }
 }

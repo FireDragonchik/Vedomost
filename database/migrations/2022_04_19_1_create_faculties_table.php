@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('faculties', function (Blueprint $table) {
             $table->id();
             $table->string('shortNameOfFaculty');
-            $table->string('fullNameOfFaculty');
+            $table->string('fullNameOfFaculty')->unique();
             $table->string('fioDean');
         });
     }

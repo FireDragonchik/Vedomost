@@ -15,7 +15,7 @@ class FacultyController extends Controller
      */
     public function index()
     {
-        $faculties = Faculty::orderBy('id')->get();
+        $faculties = Faculty::paginate(10);
         return view('admin.faculty.index', ['faculties' => $faculties]);
     }
 
@@ -32,7 +32,7 @@ class FacultyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -43,13 +43,13 @@ class FacultyController extends Controller
         $new_faculty->fioDean = $request->fioDean;
         $new_faculty->save();
 
-        return redirect()->back()->withSuccess('Факультет успешно добавлен!');
+        return redirect()->back()->withSuccess($new_faculty->fullNameOfFaculty . ' успешно добавлен!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Faculty  $faculty
+     * @param \App\Models\Faculty $faculty
      * @return \Illuminate\Http\Response
      */
     public function show(Faculty $faculty)
@@ -60,19 +60,19 @@ class FacultyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Faculty  $faculty
+     * @param \App\Models\Faculty $faculty
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Faculty $faculty)
     {
-        return view('admin.faculty.edit', ['faculty'=>$faculty]);
+        return view('admin.faculty.edit', ['faculty' => $faculty]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Faculty  $faculty
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Faculty $faculty
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Faculty $faculty)
@@ -82,18 +82,18 @@ class FacultyController extends Controller
         $faculty->fioDean = $request->fioDean;
         $faculty->save();
 
-        return redirect()->back()->withSuccess('Факультет успешно обновлен!');
+        return redirect()->back()->withSuccess($faculty->fullNameOfFaculty . ' успешно обновлен!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Faculty  $faculty
+     * @param \App\Models\Faculty $faculty
      * @return \Illuminate\Http\Response
      */
     public function destroy(Faculty $faculty)
     {
         $faculty->delete();
-        return redirect()->back()->withSuccess('Факультет был успешно удален!');
+        return redirect()->back()->withSuccess($faculty->fullNameOfFaculty . ' был успешно удален!');
     }
 }

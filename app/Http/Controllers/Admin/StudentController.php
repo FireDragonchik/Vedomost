@@ -47,7 +47,7 @@ class StudentController extends Controller
         $new_student->subGroup = $request->subGroup;
         $new_student->save();
 
-        return redirect()->back()->withSuccess('Студент успешно добавлен!');
+        return redirect()->back()->withSuccess('Студент ' . $new_student->fioStudent . ' успешно добавлен!');
     }
 
     /**
@@ -88,7 +88,7 @@ class StudentController extends Controller
         $student->subGroup = $request->subGroup;
         $student->save();
 
-        return redirect()->back()->withSuccess('Студент успешно обновлен!');
+        return redirect()->back()->withSuccess('Студент ' . $student->fioStudent . ' успешно обновлен!');
     }
 
     /**
@@ -100,6 +100,6 @@ class StudentController extends Controller
     public function destroy(Student $student)
     {
         $student->delete();
-        return redirect()->back()->withSuccess('Студент был успешно удален!');
+        return redirect()->back()->withSuccess('Студент ' . $student->fioStudent . ' был успешно удален!');
     }
 }

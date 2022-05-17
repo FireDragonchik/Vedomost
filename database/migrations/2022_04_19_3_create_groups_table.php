@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->string('groupCode');
+            $table->string('groupCode')->unique();
             $table->foreignId('course_id')->constrained();
             $table->foreignId('education_form_id')->constrained();
             $table->foreignId('graduate_degree_id')->constrained();

@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Все ведомости')
+@section('title', 'Все пользователи')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Все ведомости</h1>
+                    <h1 class="m-0">Все пользователи</h1>
                 </div><!-- /.c  ol -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -32,52 +32,40 @@
                             <th style="width: 1%">
                                 ID
                             </th>
-                            <th style="width: 7%">
-                                Учебный год
+                            <th style="width: 30%">
+                                Имя пользователя
                             </th>
-                            <th style="width: 10%">
-                                Семестр
-                            </th>
-                            <th style="width: 10%">
-                                Группа
+                            <th style="width: 30%">
+                                Email
                             </th>
                             <th>
-                                Дисциплина
-                            </th>
-                            <th style="width: 20%">
-                                Преподаватель
+                                Роль
                             </th>
                             <th style="width:30%"></th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($reports as $report)
+                        @foreach($users as $user)
                             <tr>
                                 <td>
-                                    <a href="{{ route('report.show', $report) }}"> {{ $report->id }} </a>
+                                    {{ $user->id }}
                                 </td>
                                 <td>
-                                    {{ $report->year->year }}
+                                    {{ $user->name }}
                                 </td>
                                 <td>
-                                    {{ $report->semester->semester }}
+                                    {{ $user->email }}
                                 </td>
                                 <td>
-                                    {{ $report->group->groupCode }}
-                                </td>
-                                <td>
-                                    {{ $report->discipline->fullNameOfDiscipline }}
-                                </td>
-                                <td>
-                                    {{ $report->discipline->teacher->fioTeacher }}
+                                    {{ $user->role }}
                                 </td>
                                 <td class="project-actions text-right">
-                                    <a class="btn btn-info btn-sm" href="{{ route('report.edit', $report->id) }}">
+                                    <a class="btn btn-info btn-sm" href="{{ route('user.edit', $user) }}">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Редактировать
                                     </a>
-                                    <form action="{{ route('report.destroy', $report->id) }}" method="POST"
+                                    <form action="{{ route('user.destroy', $user) }}" method="POST"
                                           style="display: inline-block">
                                         @csrf
                                         @method('DELETE')
@@ -96,7 +84,7 @@
                 <!-- /.card-body -->
             </div>
         </div><!-- /.container-fluid -->
-        {{ $reports->withQueryString()->links() }}
+        {{ $users->withQueryString()->links() }}
     </section>
     <!-- /.content -->
 @endsection

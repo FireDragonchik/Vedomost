@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('disciplines', function (Blueprint $table) {
             $table->id();
             $table->string('shortNameOfDiscipline');
-            $table->string('fullNameOfDiscipline');
+            $table->string('fullNameOfDiscipline')->unique();
             $table->foreignId('teacher_id')->constrained();
         });
     }

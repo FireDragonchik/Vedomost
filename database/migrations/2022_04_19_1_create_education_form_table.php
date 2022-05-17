@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('education_forms', function (Blueprint $table) {
             $table->id();
-            $table->string('educationForm');
+            $table->string('educationForm')->unique();
         });
     }
 

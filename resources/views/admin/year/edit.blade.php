@@ -35,10 +35,10 @@
                             @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="year">Год обучения</label>
+                                    <label for="year">Учебный год</label>
                                     <input type="text" value="{{ $year->year }}" name="year"
                                            class="form-control" id="year"
-                                           placeholder="Введите год обучения" required>
+                                           placeholder="Введите учебный год" required>
                                 </div>
                             </div>
                             <!-- /.card-body -->
