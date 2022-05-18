@@ -35,18 +35,16 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="shortNameOfFaculty">Краткое наименование факультета</label>
-                                    <input type="text" name="shortNameOfFaculty" class="form-control" id="shortNameOfFaculty"
+                                    <input type="text" name="shortNameOfFaculty" class="form-control"
+                                           id="shortNameOfFaculty"
                                            placeholder="Введите краткое наименование факультета" required>
                                 </div>
-                            </div>
-                            <div class="card-body">
                                 <div class="form-group">
                                     <label for="fullNameOfFaculty">Полное наименование факультета</label>
-                                    <input type="text" name="fullNameOfFaculty" class="form-control" id="fullNameOfFaculty"
+                                    <input type="text" name="fullNameOfFaculty" class="form-control"
+                                           id="fullNameOfFaculty"
                                            placeholder="Введите полное наименование факультета" required>
                                 </div>
-                            </div>
-                            <div class="card-body">
                                 <div class="form-group">
                                     <label for="fioDean">Декан</label>
                                     <input type="text" name="fioDean" class="form-control" id="fioDean"

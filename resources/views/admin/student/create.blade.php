@@ -59,8 +59,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="subGroup">Индекс подгруппы</label>
-                                    <input type="text" name="subGroup" class="form-control"
+                                    <input type="number" name="subGroup" class="form-control"
                                            id="subGroup"
+                                           value="1"
                                            placeholder="Введите индекс подгруппы (1,2)">
                                 </div>
                             </div>

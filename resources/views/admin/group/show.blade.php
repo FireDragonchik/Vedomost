@@ -65,7 +65,7 @@
                                           style="display: inline-block">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn delete-btn btn-danger btn-sm" href="">
+                                        <button type="submit" class="btn delete-btn btn-danger btn-sm">
                                             <i class="fas fa-trash">
                                             </i>
                                             Удалить
