@@ -6,8 +6,6 @@ use App\Filters\QueryFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Date;
-use phpDocumentor\Reflection\Types\String_;
 
 class Student extends Model
 {
@@ -42,7 +40,11 @@ class Student extends Model
             $sum = $sum + $mark->mark;
             $count++;
         }
-        return intdiv($sum, $count);
+        if ($count != 0) {
+            return intdiv($sum, $count);
+        } else {
+            return 0;
+        }
     }
 
     public function group()

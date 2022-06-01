@@ -29,6 +29,7 @@ Route::middleware(['role:User'])->prefix('teacher_panel')->group(function () {
     Route::get('/', [\App\Http\Controllers\User\HomeController::class, 'index'])->name('homeTeacher');
 
     Route::resource('t_group', \App\Http\Controllers\User\GroupController::class);
+    Route::resource('t_report', \App\Http\Controllers\User\TeacherReportController::class);
 });
 
 Route::middleware(['role:Admin'])->prefix('admin_panel')->group(function () {

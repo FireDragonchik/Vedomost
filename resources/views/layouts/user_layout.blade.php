@@ -67,6 +67,14 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
                     <li class="nav-item">
+                        <a href="{{ route('homeTeacher') }}" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Главная
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-users-cog"></i>
                             <p>
@@ -92,14 +100,14 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('report.index') }}" class="nav-link">
+                                <a href="{{ route('t_report.index') }}" class="nav-link">
                                     <p>Все ведомости</p>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('report.create') }}" class="nav-link">
+                                <a href="{{ route('t_report.create') }}" class="nav-link">
                                     <p>Добавить ведомость</p>
                                 </a>
                             </li>
