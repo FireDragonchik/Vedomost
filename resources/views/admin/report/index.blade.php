@@ -17,6 +17,45 @@
                     <h4><i class="icon fa fa-check"></i>{{ session('success') }}</h4>
                 </div>
             @endif
+            <form action="{{ route('report.index') }}">
+                <div class="row mb-2">
+                    <div class="col-sm-2">
+                        <h3 class="m-0">Фильтр</h3>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="form-label">Учебный год</label>
+                        <br>
+                        <select class="js-select2" name="year_id" style="width: 100%">
+                            <option value=""></option>
+                            @foreach($years as $year)
+                                <option value="{{ $year->id }}"
+                                        @if(isset($_GET['year_id'])) @if($_GET['year_id'] == $year->id)
+                                        selected @endIf @endIf>
+                                    {{ $year->year }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="form-label">Семестр</label>
+                        <br>
+                        <select class="js-select2" name="semester_id" style="width: 100%">
+                            <option value=""></option>
+                            @foreach($semesters as $semester)
+                                <option value="{{ $semester->id }}"
+                                        @if(isset($_GET['semester_id']))@if($_GET['semester_id'] == $semester->id)
+                                        selected @endIf @endIf>
+                                    {{ $semester->semester }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <br>
+                        <button type="submit" class="btn btn-primary">Применить</button>
+                    </div>
+                </div>
+            </form>
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->

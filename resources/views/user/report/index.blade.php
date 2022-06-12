@@ -54,7 +54,7 @@
                         @foreach($reports as $report)
                             <tr>
                                 <td>
-                                    <a href="{{ route('t_report.show', $report['id']) }}"> {{ $report['id'] }} </a>
+                                    <a href="{{ route('t_report.show', $report) }}"> {{ $report->id }} </a>
                                 </td>
                                 <td>
                                     {{ $report->year->year }}
@@ -93,10 +93,14 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- /.card-body -->
+                {:echo "
+                <pre/>
+                "}}
+            {{var_dump($reports[1])}}
+            <!-- /.card-body -->
             </div>
         </div><!-- /.container-fluid -->
-        {{--        {{ $reports->withQueryString()->links() }}--}}
+        {{ $reports->withQueryString()->links() }}
     </section>
     <!-- /.content -->
 @endsection

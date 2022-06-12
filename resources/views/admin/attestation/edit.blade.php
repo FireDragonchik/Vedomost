@@ -1,14 +1,14 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Добавить отметку')
+@section('title', 'Редактирование отметки')
 
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Добавить отметку</h1>
+                <div>
+                    <h1 class="text-center">Редактирование отметки {{ $attestation->mark }}</h1>
                 </div><!-- /.c  ol -->
             </div><!-- /.row -->
             @if (session('success'))
@@ -22,6 +22,8 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
+
+    <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -30,8 +32,9 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('attestation.store') }}" method="POST">
+                        <form action="{{ route('attestation.update', $attestation) }}" method="POST">
                             @csrf
+                            @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
                                     <label class="form-label">Ведомость</label>
@@ -39,7 +42,8 @@
                                     <select class="js-select2" name="report_id">
                                         <option value=""></option>
                                         @foreach($reports as $report)
-                                            <option value="{{ $report->id }}">
+                                            <option value="{{ $report->id }}"
+                                                    @if($attestation->report_id == $report->id) selected @endif>
                                                 {{ $report->year->year }} {{ $report->semester->semester }} семестр
                                                 группа {{ $report->group->groupCode }}
                                                 дисциплина {{ $report->discipline->fullNameOfDiscipline }}
@@ -54,7 +58,8 @@
                                     <select class="js-select2" name="student_id">
                                         <option value=""></option>
                                         @foreach($students as $student)
-                                            <option value="{{ $student->id }}">
+                                            <option value="{{ $student->id }}"
+                                                    @if($attestation->student_id == $student->id) selected @endif>
                                                 {{ $student->group->groupCode }} {{ $student->fioStudent }}
                                             </option>
                                         @endforeach
@@ -62,17 +67,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="course">Дата</label>
-                                    <input type="date" name="date" class="form-control" required>
+                                    <input type="date" name="date" class="form-control" required
+                                           value="{{ $attestation->date }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="course">Отметка</label>
                                     <input type="number" name="mark" class="form-control"
-                                           placeholder="Введите отметку" required>
+                                           placeholder="Введите отметку" required
+                                           value="{{ $attestation->mark }}">
                                 </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Добавить</button>
+                                <button type="submit" class="btn btn-primary">Обновить</button>
                             </div>
                         </form>
                     </div>
@@ -81,5 +88,5 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
+
 @endsection

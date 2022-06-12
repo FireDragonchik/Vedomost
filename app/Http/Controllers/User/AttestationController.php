@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Attestation;
@@ -29,7 +29,7 @@ class AttestationController extends Controller
     {
         $reports = Report::all();
         $students = Student::all();
-        return view('admin.attestation.create', compact(['reports', 'students']));
+        return view('user.attestation.create', compact(['reports', 'students']));
     }
 
     /**
@@ -71,7 +71,7 @@ class AttestationController extends Controller
     {
         $reports = Report::all();
         $students = Student::all();
-        return view('admin.attestation.edit', ['attestation' => $attestation,
+        return view('user.attestation.edit', ['attestation' => $attestation,
             'reports' => $reports, 'students' => $students]);
     }
 

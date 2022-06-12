@@ -1,4 +1,4 @@
-@extends('layouts.admin_layout')
+@extends('layouts.user_layout')
 
 @section('title', 'Добавить отметку')
 
@@ -30,7 +30,7 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('attestation.store') }}" method="POST">
+                        <form action="{{ route('t_attestation.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">

@@ -30,7 +30,7 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('report.store') }}" method="POST">
+                        <form action="{{ route('t_report.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
@@ -39,7 +39,7 @@
                                     <select class="js-select2" name="year_id">
                                         <option value=""></option>
                                         @foreach($years as $year)
-                                            <option class="course" value="{{ $year->id }}">
+                                            <option value="{{ $year->id }}">
                                                 {{ $year->year }}
                                             </option>
                                         @endforeach
@@ -51,7 +51,7 @@
                                     <select class="js-select2" name="semester_id">
                                         <option value=""></option>
                                         @foreach($semesters as $semester)
-                                            <option class="course" value="{{ $semester->id }}">
+                                            <option value="{{ $semester->id }}">
                                                 {{ $semester->semester }}
                                             </option>
                                         @endforeach
@@ -63,7 +63,7 @@
                                     <select class="js-select2" name="group_id">
                                         <option value=""></option>
                                         @foreach($groups as $group)
-                                            <option class="course" value="{{ $group->id }}">
+                                            <option value="{{ $group->id }}">
                                                 {{ $group->groupCode }}
                                             </option>
                                         @endforeach
@@ -75,7 +75,7 @@
                                     <select class="js-select2" name="discipline_id">
                                         <option value=""></option>
                                         @foreach($disciplines as $discipline)
-                                            <option class="course" value="{{ $discipline->id }}">
+                                            <option value="{{ $discipline->id }}">
                                                 {{ $discipline->fullNameOfDiscipline }}
                                             </option>
                                         @endforeach

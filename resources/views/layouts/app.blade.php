@@ -37,9 +37,6 @@
                                 @elseif(@auth()->user()->hasRole('User'))
                                     <a href="{{ route('homeTeacher') }}">Панель преподавателя &nbsp/&nbsp</a>
                                 @endif
-                                @if(@auth()->user()->hasRole('Admin') || @auth()->user()->hasRole('User'))
-                                    <a href="{{ route('personalAccount') }}">Личный кабинет &nbsp/&nbsp</a>
-                                @endif
                                 <a href="{{ route('logout') }}">Выйти</a>
                             @else
                                 <a href="{{ route('login') }}">Вход &nbsp/&nbsp </a>

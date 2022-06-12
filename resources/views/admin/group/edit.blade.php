@@ -48,7 +48,7 @@
                                             class="form-select form-select-sm"
                                             aria-label=".form-select-sm example">
                                         @foreach($courses as $course)
-                                            <option class="course" value="{{ $course->id }}"
+                                            <option value="{{ $course->id }}"
                                                     @if($group->course_id == $course->id) selected @endif>
                                                 {{ $course->course }}
                                             </option>

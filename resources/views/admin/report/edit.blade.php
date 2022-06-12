@@ -41,7 +41,7 @@
                                             class="form-select form-select-sm"
                                             aria-label=".form-select-sm example">
                                         @foreach($years as $year)
-                                            <option class="course" value="{{ $year->id }}"
+                                            <option value="{{ $year->id }}"
                                                     @if($report->year_id == $year->id) selected @endif>
                                                 {{ $year->year }}
                                             </option>
@@ -53,10 +53,10 @@
                                     <br>
                                     <select name="semester_id"
                                             class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example"
-                                            value="{{ $report->semester_id }}">
+                                            aria-label=".form-select-sm example">
                                         @foreach($semesters as $semester)
-                                            <option class="course" value="{{ $semester->id }}">
+                                            <option value="{{ $semester->id }}"
+                                                    @if($report->semester_id == $semester->id) selected @endif>
                                                 {{ $semester->semester }}
                                             </option>
                                         @endforeach
@@ -67,10 +67,10 @@
                                     <br>
                                     <select name="group_id"
                                             class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example"
-                                            value="{{ $report->group_id }}">
+                                            aria-label=".form-select-sm example">
                                         @foreach($groups as $group)
-                                            <option class="course" value="{{ $group->id }}">
+                                            <option value="{{ $group->id }}"
+                                                    @if($report->group_id == $group->id) selected @endif>
                                                 {{ $group->groupCode }}
                                             </option>
                                         @endforeach
@@ -84,7 +84,8 @@
                                             aria-label=".form-select-sm example"
                                             value="{{ $report->discipline_id }}">
                                         @foreach($disciplines as $discipline)
-                                            <option class="course" value="{{ $discipline->id }}">
+                                            <option value="{{ $discipline->id }}"
+                                                    @if($report->discipline_id == $discipline->id) selected @endif>
                                                 {{ $discipline->shortNameOfDiscipline }}
                                             </option>
                                         @endforeach

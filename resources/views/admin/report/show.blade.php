@@ -45,7 +45,11 @@
                         @for($i=0;$i<sizeof($dates);$i++)
                             @if(sizeof($student->attestation) > $i)
                                 @if(strpos(json_encode($dates), $student->attestation[$i]->date) !== false)
-                                    <td>{{ $student->attestation[$i]->mark }}</td>
+                                    <td>
+                                        <a href="{{ route('attestation.edit', ['attestation'=>$student->attestation[$i]]) }}">
+                                            {{ $student->attestation[$i]->mark }}
+                                        </a>
+                                    </td>
                                 @endif
                             @else
                                 <td>-</td>

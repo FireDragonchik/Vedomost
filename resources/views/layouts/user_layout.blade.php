@@ -123,7 +123,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('attestation.create') }}" class="nav-link">
+                                <a href="{{ route('t_attestation.create') }}" class="nav-link">
                                     <p>Добавить отметку</p>
                                 </a>
                             </li>

@@ -41,7 +41,7 @@
                                             class="form-select form-select-sm"
                                             aria-label=".form-select-sm example">
                                         @foreach($years as $year)
-                                            <option class="course" value="{{ $year->id }}"
+                                            <option value="{{ $year->id }}"
                                                     @if($report->year_id == $year->id) selected @endif>
                                                 {{ $year->year }}
                                             </option>
@@ -56,7 +56,7 @@
                                             aria-label=".form-select-sm example"
                                             value="{{ $report->semester_id }}">
                                         @foreach($semesters as $semester)
-                                            <option class="course" value="{{ $semester->id }}">
+                                            <option value="{{ $semester->id }}">
                                                 {{ $semester->semester }}
                                             </option>
                                         @endforeach
@@ -70,7 +70,7 @@
                                             aria-label=".form-select-sm example"
                                             value="{{ $report->group_id }}">
                                         @foreach($groups as $group)
-                                            <option class="course" value="{{ $group->id }}">
+                                            <option value="{{ $group->id }}">
                                                 {{ $group->groupCode }}
                                             </option>
                                         @endforeach
@@ -84,7 +84,7 @@
                                             aria-label=".form-select-sm example"
                                             value="{{ $report->discipline_id }}">
                                         @foreach($disciplines as $discipline)
-                                            <option class="course" value="{{ $discipline->id }}">
+                                            <option value="{{ $discipline->id }}">
                                                 {{ $discipline->shortNameOfDiscipline }}
                                             </option>
                                         @endforeach

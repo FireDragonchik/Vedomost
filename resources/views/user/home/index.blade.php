@@ -24,14 +24,14 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>1</h3>
+                            <h3>{{ $reportCount }}</h3>
 
                             <p>Количество ведомостей</p>
                         </div>
                         <div class="icon">
                             <i class="far fa-newspaper"></i>
                         </div>
-                        <a href="{{ route('group.index') }}" class="small-box-footer">Подробнее <i
+                        <a href="{{ route('t_report.index') }}" class="small-box-footer">Подробнее <i
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>

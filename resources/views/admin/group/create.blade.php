@@ -45,7 +45,7 @@
                                     <select class="js-select2" name="course_id">
                                         <option value=""></option>
                                         @foreach($courses as $course)
-                                            <option class="course" value="{{ $course->id }}">
+                                            <option value="{{ $course->id }}">
                                                 {{ $course->course }}
                                             </option>
                                         @endforeach

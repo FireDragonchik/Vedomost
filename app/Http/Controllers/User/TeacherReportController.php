@@ -32,9 +32,11 @@ class TeacherReportController extends Controller
             array_push($disciplineIds, $discipline['id']);
         }
 
-        $reports = Report::whereIn('discipline_id', $disciplineIds)->get();
-
-        return view('user.report.index', compact(['reports', 'user']));
+        $result = Report::whereIn('discipline_id', $disciplineIds)->get();
+        $sortedResult = $result->sortDesc();
+        $reports = Report::paginate(10);
+        $reports->setCollection($sortedResult);
+        return view('user.report.index', compact(['reports']));
     }
 
     /**
@@ -85,6 +87,7 @@ class TeacherReportController extends Controller
         $dates = DB::table('attestations')->select(DB::raw('distinct date'))
             ->where('report_id', '=', $report->id)
             ->get()->toArray();
+
         return view('user.report.show', ['report' => $report, 'maxDate' => $maxDate->maxDate,
             'minDate' => $minDate->minDate, 'dates' => $dates]);
     }

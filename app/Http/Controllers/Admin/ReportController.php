@@ -18,10 +18,21 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $reports = Report::paginate(10);
-        return view('admin.report.index', compact(['reports']));
+        if (isset($request->year_id)) {
+            $result = Report::all()->where('year_id', $request->year_id)->where('semester_id', $request->semester_id);
+            $reports = Report::paginate(10);
+            $reports->setCollection($result);
+        } else {
+            $result = Report::all()->sortByDesc('id');
+            $reports = Report::paginate(10);
+            $reports->setCollection($result);
+        }
+        $years = Year::all();
+        $semesters = Semester::all();
+
+        return view('admin.report.index', compact(['reports', 'years', 'semesters', 'request']));
     }
 
     /**
@@ -73,7 +84,7 @@ class ReportController extends Controller
             ->where('report_id', '=', $report->id)
             ->get()->toArray();
         return view('admin.report.show', ['report' => $report, 'maxDate' => $maxDate->maxDate,
-            'minDate' => $minDate->minDate, 'dates'=>$dates]);
+            'minDate' => $minDate->minDate, 'dates' => $dates]);
     }
 
     /**
