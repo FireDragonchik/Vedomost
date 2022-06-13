@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Group;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class GroupController extends Controller
@@ -30,6 +31,17 @@ class GroupController extends Controller
         $students = DB::table('students')->select('*')->orderBy('studentId')
             ->where('group_id', '=', $group->id)
             ->get()->toArray();
+        return view('user.group.show', compact(['group', 'students']));
+    }
+
+    public function showThroughRequest(Request $request)
+    {
+
+        $group = Group::query()->where('id', '=', $request->group)->first();
+        $students = DB::table('students')->select('*')->orderBy('studentId')
+            ->where('group_id', '=', $group->id)
+            ->get()->toArray();
+
         return view('user.group.show', compact(['group', 'students']));
     }
 }

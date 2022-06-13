@@ -32,7 +32,7 @@ class ReportController extends Controller
         $years = Year::all();
         $semesters = Semester::all();
 
-        return view('admin.report.index', compact(['reports', 'years', 'semesters', 'request']));
+        return view('admin.report.index', compact(['reports', 'years', 'semesters']));
     }
 
     /**

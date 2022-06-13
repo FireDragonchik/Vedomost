@@ -12,7 +12,6 @@ use App\Models\Year;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use function PHPUnit\Framework\exactly;
 
 class TeacherReportController extends Controller
 {
@@ -21,7 +20,7 @@ class TeacherReportController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
         $teacher = Teacher::all()->where('fioTeacher', '=', $user->name)->first();
@@ -33,11 +32,18 @@ class TeacherReportController extends Controller
             array_push($disciplineIds, $discipline['id']);
         }
 
-        $result = Report::whereIn('discipline_id', $disciplineIds)->get();
+        if (isset($request->year_id)) {
+            $result = Report::all()->whereIn('discipline_id', $disciplineIds)->where('year_id', $request->year_id)->where('semester_id', $request->semester_id);
+        } else {
+            $result = Report::whereIn('discipline_id', $disciplineIds)->get();
+        }
         $sortedResult = $result->sortDesc();
         $reports = Report::paginate(10);
         $reports->setCollection($sortedResult);
-        return view('user.report.index', compact(['reports']));
+        $years = Year::all();
+        $semesters = Semester::all();
+
+        return view('user.report.index', compact(['reports', 'years', 'semesters']));
     }
 
     /**

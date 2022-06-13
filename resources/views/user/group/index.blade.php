@@ -56,7 +56,10 @@
                         @foreach($groups as $group)
                             <tr>
                                 <td>
-                                    <a href="{{ route('tGroup.show', $group) }}"> {{ $group->id }} </a>
+                                    <form action="{{ route('showGroup') }}" method="get">
+                                        <input type="hidden" name="group" id="group" value="{{ $group->id }}">
+                                        <button type="submit" class="btn">{{ $group->id }}</button>
+                                    </form>
                                 </td>
                                 <td>
                                     {{ $group->groupCode }}
