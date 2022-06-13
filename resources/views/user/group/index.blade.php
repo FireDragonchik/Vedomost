@@ -56,7 +56,7 @@
                         @foreach($groups as $group)
                             <tr>
                                 <td>
-                                    <a href="{{ route('t_group.show', $group) }}"> {{ $group->id }} </a>
+                                    <a href="{{ route('tGroup.show', $group) }}"> {{ $group->id }} </a>
                                 </td>
                                 <td>
                                     {{ $group->groupCode }}

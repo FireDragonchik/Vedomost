@@ -25,9 +25,9 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::middleware(['role:User'])->prefix('teacher_panel')->group(function () {
     Route::get('/', [\App\Http\Controllers\User\HomeController::class, 'index'])->name('homeTeacher');
 
-    Route::resource('t_group', \App\Http\Controllers\User\GroupController::class);
-    Route::resource('t_report', \App\Http\Controllers\User\TeacherReportController::class);
-    Route::resource('t_attestation', \App\Http\Controllers\User\AttestationController::class);
+    Route::resource('tGroup', \App\Http\Controllers\User\GroupController::class);
+    Route::resource('tReport', \App\Http\Controllers\User\TeacherReportController::class);
+    Route::resource('tAttestation', \App\Http\Controllers\User\AttestationController::class);
 });
 
 Route::middleware(['role:Admin'])->prefix('admin_panel')->group(function () {
@@ -48,4 +48,5 @@ Route::middleware(['role:Admin'])->prefix('admin_panel')->group(function () {
     Route::resource('report', \App\Http\Controllers\Admin\ReportController::class);
     Route::resource('attestation', \App\Http\Controllers\Admin\AttestationController::class);
     Route::resource('user', \App\Http\Controllers\Admin\UserController::class);
+    Route::get('/report/save', [\App\Http\Controllers\Admin\ReportController::class, 'generateExcel']);
 });

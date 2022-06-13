@@ -54,7 +54,7 @@
                         @foreach($reports as $report)
                             <tr>
                                 <td>
-                                    <a href="{{ route('t_report.show', $report) }}"> {{ $report->id }} </a>
+                                    <a href="{{ route('tReport.show', $report) }}"> {{ $report->id }} </a>
                                 </td>
                                 <td>
                                     {{ $report->year->year }}
@@ -72,12 +72,12 @@
                                     {{ $report->discipline->teacher->fioTeacher }}
                                 </td>
                                 <td class="project-actions text-right">
-                                    <a class="btn btn-info btn-sm" href="{{ route('t_report.edit', $report->id) }}">
+                                    <a class="btn btn-info btn-sm" href="{{ route('tReport.edit', $report->id) }}">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Редактировать
                                     </a>
-                                    <form action="{{ route('t_report.destroy', $report->id) }}" method="POST"
+                                    <form action="{{ route('tReport.destroy', $report->id) }}" method="POST"
                                           style="display: inline-block">
                                         @csrf
                                         @method('DELETE')
