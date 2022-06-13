@@ -84,7 +84,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('t_group.index') }}" class="nav-link">
+                                <a href="{{ route('tGroup.index') }}" class="nav-link">
                                     <p>Все группы</p>
                                 </a>
                             </li>
@@ -100,14 +100,14 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('t_report.index') }}" class="nav-link">
+                                <a href="{{ route('tReport.index') }}" class="nav-link">
                                     <p>Все ведомости</p>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('t_report.create') }}" class="nav-link">
+                                <a href="{{ route('tReport.create') }}" class="nav-link">
                                     <p>Добавить ведомость</p>
                                 </a>
                             </li>
@@ -123,7 +123,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('t_attestation.create') }}" class="nav-link">
+                                <a href="{{ route('tAttestation.create') }}" class="nav-link">
                                     <p>Добавить отметку</p>
                                 </a>
                             </li>

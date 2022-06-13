@@ -30,7 +30,7 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('t_attestation.store') }}" method="POST">
+                        <form action="{{ route('tAttestation.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">

@@ -31,7 +31,7 @@
                         <div class="icon">
                             <i class="far fa-newspaper"></i>
                         </div>
-                        <a href="{{ route('t_report.index') }}" class="small-box-footer">Подробнее <i
+                        <a href="{{ route('tReport.index') }}" class="small-box-footer">Подробнее <i
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
