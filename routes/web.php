@@ -25,6 +25,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::middleware(['role:User'])->prefix('teacher_panel')->group(function () {
     Route::get('/', [\App\Http\Controllers\User\HomeController::class, 'index'])->name('homeTeacher');
 
+    Route::get('/show-report', [\App\Http\Controllers\User\TeacherReportController::class, 'showThroughRequest'])->name('showThroughRequest');
     Route::resource('t_group', \App\Http\Controllers\User\GroupController::class);
     Route::resource('t_report', \App\Http\Controllers\User\TeacherReportController::class);
     Route::resource('t_attestation', \App\Http\Controllers\User\AttestationController::class);

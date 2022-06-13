@@ -54,7 +54,11 @@
                         @foreach($reports as $report)
                             <tr>
                                 <td>
-                                    <a href="{{ route('t_report.show', $report) }}"> {{ $report->id }} </a>
+                                    <form action="{{ route('showThroughRequest') }}" method="get">
+                                        <input type="hidden" name="report" id="report" value="{{ $report->id }}">
+                                        <button type="submit" class="btn">{{ $report->id }}</button>
+                                    </form>
+{{--                                    <a href="{{ route('t_report.show', $report->id) }}"> {{ $report->id }} </a>--}}
                                 </td>
                                 <td>
                                     {{ $report->year->year }}

@@ -12,6 +12,7 @@ use App\Models\Year;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use function PHPUnit\Framework\exactly;
 
 class TeacherReportController extends Controller
 {
@@ -78,6 +79,25 @@ class TeacherReportController extends Controller
      */
     public function show(Report $report)
     {
+        $maxDate = DB::table('attestations')->select(DB::raw('max(date) as maxDate'))
+            ->where('report_id', '=', $report->id)
+            ->first();
+        $minDate = DB::table('attestations')->select(DB::raw('min(date) as minDate'))
+            ->where('report_id', '=', $report->id)
+            ->first();
+        $dates = DB::table('attestations')->select(DB::raw('distinct date'))
+            ->where('report_id', '=', $report->id)
+            ->get()->toArray();
+
+        return view('user.report.show', ['report' => $report, 'maxDate' => $maxDate->maxDate,
+            'minDate' => $minDate->minDate, 'dates' => $dates]);
+    }
+
+    public function showThroughRequest(Request $request)
+    {
+
+        $report = Report::query()->where('id', '=', $request->report)->first();
+
         $maxDate = DB::table('attestations')->select(DB::raw('max(date) as maxDate'))
             ->where('report_id', '=', $report->id)
             ->first();
