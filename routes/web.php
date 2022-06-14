@@ -30,6 +30,7 @@ Route::middleware(['role:User'])->prefix('teacher_panel')->group(function () {
     Route::resource('tGroup', \App\Http\Controllers\User\GroupController::class);
     Route::resource('tReport', \App\Http\Controllers\User\TeacherReportController::class);
     Route::resource('tAttestation', \App\Http\Controllers\User\AttestationController::class);
+    Route::get('/tReport{id}/save', [\App\Http\Controllers\User\TeacherReportController::class, 'download'])->name('rDownload');
 });
 
 Route::middleware(['role:Admin'])->prefix('admin_panel')->group(function () {
@@ -50,5 +51,5 @@ Route::middleware(['role:Admin'])->prefix('admin_panel')->group(function () {
     Route::resource('report', \App\Http\Controllers\Admin\ReportController::class);
     Route::resource('attestation', \App\Http\Controllers\Admin\AttestationController::class);
     Route::resource('user', \App\Http\Controllers\Admin\UserController::class);
-    Route::get('/report/save', [\App\Http\Controllers\Admin\ReportController::class, 'generateExcel']);
+    Route::get('/report{id}/save', [\App\Http\Controllers\Admin\ReportController::class, 'download'])->name('download');
 });

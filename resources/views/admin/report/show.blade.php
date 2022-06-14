@@ -19,6 +19,7 @@
                     </h1>
                 </div><!-- /.c  ol -->
             </div><!-- /.row -->
+            <a href="{{ route('download', ['id'=>$report->id]) }}">Скачать ведомость</a>
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
