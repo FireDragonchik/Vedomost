@@ -30,9 +30,7 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('report.update', $report->id) }}" method="POST">
-                            @csrf
-                            @method('PUT')
+                        <form action="{{ route('updateReport', ['id'=>$report->id]) }}" method="GET">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label class="form-label">Учебный год</label>
@@ -53,10 +51,10 @@
                                     <br>
                                     <select name="semester_id"
                                             class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example"
-                                            value="{{ $report->semester_id }}">
+                                            aria-label=".form-select-sm example">
                                         @foreach($semesters as $semester)
-                                            <option value="{{ $semester->id }}">
+                                            <option value="{{ $semester->id }}"
+                                                    @if($report->semester_id == $semester->id) selected @endif>
                                                 {{ $semester->semester }}
                                             </option>
                                         @endforeach
@@ -67,10 +65,10 @@
                                     <br>
                                     <select name="group_id"
                                             class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example"
-                                            value="{{ $report->group_id }}">
+                                            aria-label=".form-select-sm example">
                                         @foreach($groups as $group)
-                                            <option value="{{ $group->id }}">
+                                            <option value="{{ $group->id }}"
+                                                    @if($report->group_id == $group->id) selected @endif>
                                                 {{ $group->groupCode }}
                                             </option>
                                         @endforeach
@@ -81,10 +79,10 @@
                                     <br>
                                     <select name="discipline_id"
                                             class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example"
-                                            value="{{ $report->discipline_id }}">
+                                            aria-label=".form-select-sm example">
                                         @foreach($disciplines as $discipline)
-                                            <option value="{{ $discipline->id }}">
+                                            <option value="{{ $discipline->id }}"
+                                                    @if($report->discipline_id == $discipline->id) selected @endif>
                                                 {{ $discipline->shortNameOfDiscipline }}
                                             </option>
                                         @endforeach
@@ -93,6 +91,7 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
+                                <input type="hidden" name="reportUpdate" id="reportUpdate" value="{{ $report->id }}">
                                 <button type="submit" class="btn btn-primary">Обновить</button>
                             </div>
                         </form>

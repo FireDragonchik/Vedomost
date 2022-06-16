@@ -114,17 +114,21 @@
                                     {{ $report->discipline->teacher->fioTeacher }}
                                 </td>
                                 <td class="project-actions text-right">
-                                    <a class="btn btn-info btn-sm" href="{{ route('tReport.edit', $report->id) }}">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                        Редактировать
-                                    </a>
-                                    <form action="{{ route('tReport.destroy', $report->id) }}" method="POST"
+                                    <form action="{{ route('editReport', ['id'=>$report->id]) }}" method="get"
                                           style="display: inline-block">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn delete-btn btn-danger btn-sm">
-                                            <i class="fas fa-trash">
+                                        <input type="hidden" name="reportEdit" id="reportEdit"
+                                               value="{{ $report->id }}">
+                                        <button class="btn btn-info btn-sm" type="submit"><i class="fas fa-pencil-alt">
+                                            </i>
+                                            Редактировать
+                                        </button>
+                                    </form>
+                                    <form action="{{ route('deleteReport', ['id'=>$report->id]) }}" method="get"
+                                          style="display: inline-block">
+                                        <input type="hidden" name="reportDelete" id="reportDelete"
+                                               value="{{ $report->id }}">
+                                        <button class="btn delete-btn btn-danger btn-sm" type="submit"><i
+                                                class="fas fa-trash">
                                             </i>
                                             Удалить
                                         </button>

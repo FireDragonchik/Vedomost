@@ -132,7 +132,7 @@ class ReportController extends Controller
     public function destroy(Request $report)
     {
         $report->delete();
-        return redirect()->back()->withSuccess('Ведомость № ' . $report->id . 'была успешно удалена!');
+        return redirect()->back()->withSuccess('Ведомость № ' . $report->id . ' была успешно удалена!');
     }
 
     public function download($id)

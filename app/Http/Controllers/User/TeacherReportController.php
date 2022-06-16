@@ -88,18 +88,7 @@ class TeacherReportController extends Controller
      */
     public function show(Report $report)
     {
-        $maxDate = DB::table('attestations')->select(DB::raw('max(date) as maxDate'))
-            ->where('report_id', '=', $report->id)
-            ->first();
-        $minDate = DB::table('attestations')->select(DB::raw('min(date) as minDate'))
-            ->where('report_id', '=', $report->id)
-            ->first();
-        $dates = DB::table('attestations')->select(DB::raw('distinct date'))
-            ->where('report_id', '=', $report->id)
-            ->get()->toArray();
-
-        return view('user.report.show', ['report' => $report, 'maxDate' => $maxDate->maxDate,
-            'minDate' => $minDate->minDate, 'dates' => $dates]);
+        //
     }
 
     public function showThroughRequest(Request $request)
@@ -121,6 +110,25 @@ class TeacherReportController extends Controller
             'minDate' => $minDate->minDate, 'dates' => $dates]);
     }
 
+    public function deleteThroughRequest(Request $request)
+    {
+
+        $report = Report::query()->where('id', '=', $request->reportDelete)->first();
+        $report->delete();
+        return redirect()->back()->withSuccess('Ведомость № ' . $report->id . 'была успешно удалена!');
+    }
+
+    public function editThroughRequest(Request $request)
+    {
+
+        $report = Report::query()->where('id', '=', $request->reportEdit)->first();
+        $years = Year::all();
+        $semesters = Semester::all();
+        $groups = Group::all();
+        $disciplines = Discipline::all();
+        return view('user.report.edit', compact(['report', 'years', 'semesters', 'groups', 'disciplines']));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -129,11 +137,7 @@ class TeacherReportController extends Controller
      */
     public function edit(Report $report)
     {
-        $years = Year::all();
-        $semesters = Semester::all();
-        $groups = Group::all();
-        $disciplines = Discipline::all();
-        return view('user.report.edit', compact(['report', 'years', 'semesters', 'groups', 'disciplines']));
+        //
     }
 
     /**
@@ -153,6 +157,17 @@ class TeacherReportController extends Controller
         return redirect()->back()->withSuccess('Ведомость № ' . $report->id . ' успешно обновлена!');
     }
 
+    public function updateThroughRequest(Request $request)
+    {
+        $report = Report::query()->where('id', '=', $request->reportUpdate)->first();
+        $report->year_id = $request->year_id;
+        $report->semester_id = $request->semester_id;
+        $report->group_id = $request->group_id;
+        $report->discipline_id = $request->discipline_id;
+        $report->save();
+        return redirect()->back()->withSuccess('Ведомость № ' . $report->id . ' успешно обновлена!');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -162,7 +177,7 @@ class TeacherReportController extends Controller
     public function destroy(Report $report)
     {
         $report->delete();
-        return redirect()->back()->withSuccess('Ведомость № ' . $report->id . 'была успешно удалена!');
+        return redirect()->back()->withSuccess('Ведомость № ' . $report->id . ' была успешно удалена!');
     }
 
     public function download($id)

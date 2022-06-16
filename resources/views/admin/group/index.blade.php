@@ -47,10 +47,10 @@
                             <th style="width: 10%">
                                 Количество студентов
                             </th>
-                            <th style="width: 25%">
+                            <th style="width: 20%">
                                 Наименование специальности
                             </th>
-                            <th style="width:30%"></th>
+                            <th style="width:35%"></th>
                         </tr>
                         </thead>
                         <tbody>

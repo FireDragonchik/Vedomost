@@ -69,10 +69,7 @@ class AttestationController extends Controller
      */
     public function edit(Attestation $attestation)
     {
-        $reports = Report::all();
-        $students = Student::all();
-        return view('user.attestation.edit', ['attestation' => $attestation,
-            'reports' => $reports, 'students' => $students]);
+        //
     }
 
     /**
@@ -84,6 +81,21 @@ class AttestationController extends Controller
      */
     public function update(Request $request, Attestation $attestation)
     {
+        //
+    }
+
+    public function attestationEdit(Request $request)
+    {
+        $attestation = Attestation::query()->where('id', '=', $request->attestation)->first();
+        $reports = Report::all();
+        $students = Student::all();
+        return view('user.attestation.edit', ['attestation' => $attestation,
+            'reports' => $reports, 'students' => $students]);
+    }
+
+    public function attestationUpdate(Request $request)
+    {
+        $attestation = Attestation::query()->where('id', '=', $request->attestation)->first();
         $attestation->report_id = $request->report_id;
         $attestation->student_id = $request->student_id;
         $attestation->date = $request->date;

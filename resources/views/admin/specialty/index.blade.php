@@ -38,7 +38,7 @@
                             <th style="width: 30%">
                                 Полное наименование специальности
                             </th>
-                            <th style="width: 25%">
+                            <th style="width: 15%">
                                 Факультет
                             </th>
                             <th style="width:30%"></th>

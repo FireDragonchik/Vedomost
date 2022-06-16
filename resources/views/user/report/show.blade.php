@@ -19,7 +19,7 @@
                     </h1>
                 </div><!-- /.c  ol -->
             </div><!-- /.row -->
-            <a href="{{ route('rDownload', ['id'=>$report->id]) }}">Скачать ведомость</a>
+            <a href="{{ route('downloadReport', ['id'=>$report->id]) }}">Скачать ведомость</a>
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -46,7 +46,17 @@
                         @for($i=0;$i<sizeof($dates);$i++)
                             @if(sizeof($student->attestation) > $i)
                                 @if(strpos(json_encode($dates), $student->attestation[$i]->date) !== false)
-                                    <td>{{ $student->attestation[$i]->mark }}</td>
+                                    <td>
+                                        <form
+                                            action="{{ route('attestationEdit', ['id'=>$student->attestation[$i]->id]) }}"
+                                            method="get"
+                                            style="display: inline-block">
+                                            <input type="hidden" name="attestation" id="attestation"
+                                                   value="{{ $student->attestation[$i]->id }}">
+                                            <button class="btn" type="submit">
+                                                {{ $student->attestation[$i]->mark }}</button>
+                                        </form>
+                                    </td>
                                 @endif
                             @else
                                 <td>-</td>
@@ -58,5 +68,4 @@
             @endforeach
         </table>
     </div>
-
 @endsection

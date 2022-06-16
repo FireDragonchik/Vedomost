@@ -35,7 +35,7 @@
                             <th style="width: 20%">
                                 Краткое наименование факультета
                             </th>
-                            <th style="width: 30%">
+                            <th style="width: 25%">
                                 Полное наименование факультета
                             </th>
                             <th style="width: 25%">

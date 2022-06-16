@@ -30,7 +30,12 @@ Route::middleware(['role:User'])->prefix('teacher_panel')->group(function () {
     Route::resource('tGroup', \App\Http\Controllers\User\GroupController::class);
     Route::resource('tReport', \App\Http\Controllers\User\TeacherReportController::class);
     Route::resource('tAttestation', \App\Http\Controllers\User\AttestationController::class);
-    Route::get('/tReport{id}/save', [\App\Http\Controllers\User\TeacherReportController::class, 'download'])->name('rDownload');
+    Route::get('/report{id}/save', [\App\Http\Controllers\User\TeacherReportController::class, 'download'])->name('downloadReport');
+    Route::get('/report{id}/delete', [\App\Http\Controllers\User\TeacherReportController::class, 'deleteThroughRequest'])->name('deleteReport');
+    Route::get('/report{id}/edit', [\App\Http\Controllers\User\TeacherReportController::class, 'editThroughRequest'])->name('editReport');
+    Route::get('/report{id}/update', [\App\Http\Controllers\User\TeacherReportController::class, 'updateThroughRequest'])->name('updateReport');
+    Route::get('/attestation{id}/update', [\App\Http\Controllers\User\AttestationController::class, 'attestationUpdate'])->name('attestationUpdate');
+    Route::get('/attestation{id}/edit', [\App\Http\Controllers\User\AttestationController::class, 'attestationEdit'])->name('attestationEdit');
 });
 
 Route::middleware(['role:Admin'])->prefix('admin_panel')->group(function () {

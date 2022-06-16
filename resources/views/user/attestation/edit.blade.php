@@ -32,9 +32,7 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('attestation.update', $attestation) }}" method="POST">
-                            @csrf
-                            @method('PUT')
+                        <form action="{{ route('attestationUpdate', ['id'=>$attestation->id]) }}" method="GET">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label class="form-label">Ведомость</label>
@@ -79,6 +77,7 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
+                                <input type="hidden" name="attestation" id="attestation" value="{{ $attestation->id }}">
                                 <button type="submit" class="btn btn-primary">Обновить</button>
                             </div>
                         </form>
