@@ -95,7 +95,7 @@
                                 <td>
                                     <form action="{{ route('showReport') }}" method="get">
                                         <input type="hidden" name="report" id="report" value="{{ $report->id }}">
-                                        <button type="submit" class="btn">{{ $report->id }}</button>
+                                        <button type="submit" class="btn" style="color:blue">{{ $report->id }}</button>
                                     </form>
                                 </td>
                                 <td>

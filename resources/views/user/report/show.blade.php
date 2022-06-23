@@ -53,7 +53,7 @@
                                             style="display: inline-block">
                                             <input type="hidden" name="attestation" id="attestation"
                                                    value="{{ $student->attestation[$i]->id }}">
-                                            <button class="btn" type="submit">
+                                            <button class="btn" type="submit" style="color:blue">
                                                 {{ $student->attestation[$i]->mark }}</button>
                                         </form>
                                     </td>
